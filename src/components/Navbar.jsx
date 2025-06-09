@@ -27,7 +27,11 @@ const Navbar = () => {
               className=" md:hidden mr-1 cursor-pointer  p-1 rounded-l"
               onClick={() => setShow(!show)}
             >
-              {show ? <RxCross2 size={27} color="gray" /> : <RxHamburgerMenu size={27} color="gray" />}
+              {show ? (
+                <RxCross2 size={27} color="gray" />
+              ) : (
+                <RxHamburgerMenu size={27} color="gray" />
+              )}
             </span>
 
             <ul
@@ -55,8 +59,16 @@ const Navbar = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div> */}
-
-          <a className="btn">Sign In</a>
+          <a
+           
+            className="px-5 py-2.5 relative rounded group font-medium text-white inline-block"
+          >
+            <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#4c637c] to-[#bbd4ee]"></span>
+            <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#4c637c] to-[#bbd4ee]"></span>
+            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#4c637c] to-[#bbd4ee]"></span>
+            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#4c637c] from-[#bbd4ee]"></span>
+            <span className="relative">Sign In</span>
+          </a>
         </div>
       </div>
     </div>
