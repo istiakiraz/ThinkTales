@@ -1,9 +1,79 @@
 import React, { useState } from "react";
 import logo from "../assets/titleLogo.png";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
+import { NavLink } from "react-router";
+import { IoHomeOutline } from "react-icons/io5";
+import { RiFunctionAddLine, RiLayoutHorizontalLine, RiPagesLine } from "react-icons/ri";
+import { MdOutlineFeaturedPlayList } from "react-icons/md";
+import { PiBookBookmarkLight } from "react-icons/pi";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+
+
+  const links = (
+    <>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
+            : " hover:underline"
+        }
+        to="/"
+      >
+        <li className="flex gap-1 items-center"> <IoHomeOutline />  Home</li>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
+            : " hover:underline"
+        }
+        to="/fff"
+      >
+        <li className="flex gap-1 items-center"> <RiLayoutHorizontalLine /> All-Blogs</li>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
+            : " hover:underline"
+        }
+        to="/jj"
+      >
+        <li className="flex gap-1 items-center"> <RiFunctionAddLine /> Add-Blog</li>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
+            : " hover:underline"
+        }
+        to="/hh"
+      >
+        <li className="flex gap-1 items-center">  <MdOutlineFeaturedPlayList /> Featured-Blogs</li>
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " bg-[#E1EEBC]/20 px-3 border border-[#E1EEBC] rounded-2xl    "
+            : " hover:underline"
+        }
+        to="/all-tasks"
+      >
+        <li className="flex gap-1 items-center"> <PiBookBookmarkLight /> Wishlist</li>
+      </NavLink>
+
+  
+
+     
+
+    </>
+  );
+
+
+
 
   return (
     <div className=" bg-base-100/20 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
@@ -12,13 +82,8 @@ const Navbar = () => {
           <img className="w-42" src={logo} alt="ThinkTales" />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 4</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <ul className=" flex gap-8 text-xl menu-horizontal px-1">
+           {links}
           </ul>
         </div>
         <div className="navbar-end">
@@ -35,32 +100,15 @@ const Navbar = () => {
             </span>
 
             <ul
-              className={`md:hidden absolute rounded-xl  pr-20 duration-1000  bg-[#4c637c]/40 p-4  ${
+              className={`md:hidden absolute   flex flex-col *:border-gray-100 *:border-b-1 *:pb-2 *:pr-20 duration-1000  bg-[#4c637c]/40 p-4  ${
                 show ? "right-2 top-18" : "-right-60 top-18"
               }`}
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+             {links}
             </ul>
           </span>
 
-          {/* <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div> */}
-          <a
-           
+          <a         
             className="px-5 py-2.5 relative rounded group font-medium text-white inline-block"
           >
             <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#4c637c] to-[#bbd4ee]"></span>
