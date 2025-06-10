@@ -9,99 +9,99 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import { GoArrowLeft } from "react-icons/go";
+import { VscSignIn } from "react-icons/vsc";
 
 const SignIn = () => {
-//   const { isDark } = use(AuthContext);
+  //   const { isDark } = use(AuthContext);
 
-//   const Toast = Swal.mixin({
-//     toast: true,
-//     position: "top-end",
-//     showConfirmButton: false,
-//     timer: 3000,
-//     timerProgressBar: true,
-//     didOpen: (toast) => {
-//       toast.onmouseenter = Swal.stopTimer;
-//       toast.onmouseleave = Swal.resumeTimer;
-//     },
-//   });
+  //   const Toast = Swal.mixin({
+  //     toast: true,
+  //     position: "top-end",
+  //     showConfirmButton: false,
+  //     timer: 3000,
+  //     timerProgressBar: true,
+  //     didOpen: (toast) => {
+  //       toast.onmouseenter = Swal.stopTimer;
+  //       toast.onmouseleave = Swal.resumeTimer;
+  //     },
+  //   });
 
   const [showPass, setShowPass] = useState(false);
 
-//   const { signInUser, googleLogIn, setUser, updateUser } = use(AuthContext);
+  //   const { signInUser, googleLogIn, setUser, updateUser } = use(AuthContext);
 
   //   const { logInUser, googleLogIn, resetPass } = use(AuthContext);
 
-//   const location = useLocation();
-//   const navigate = useNavigate();
+  //   const location = useLocation();
+  //   const navigate = useNavigate();
 
   const emailRef = useRef();
 
-//   const handleLogin = (e) => {
-//     e.preventDefault();
+  //   const handleLogin = (e) => {
+  //     e.preventDefault();
 
-//     const email = e.target.email.value;
-//     const password = e.target.password.value;
+  //     const email = e.target.email.value;
+  //     const password = e.target.password.value;
 
-    // console.log(email, password);
+  // console.log(email, password);
 
-//     signInUser(email, password)
-//       .then((result) => {
-//         console.log(result);
-//         navigate(`${location.state ? location.state : "/"}`);
+  //     signInUser(email, password)
+  //       .then((result) => {
+  //         console.log(result);
+  //         navigate(`${location.state ? location.state : "/"}`);
 
-//         Swal.fire({
-//           title: "Welcome to KAJERO.com!",
-//           text: "Let’s turn tasks into success—together.",
-//           icon: "success",
-//           confirmButtonText: "Get Started",
-//         });
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         Toast.fire({
-//           icon: "error",
-//           title: "Incorrect email or password",
-//         });
-//       });
-//   };
+  //         Swal.fire({
+  //           title: "Welcome to KAJERO.com!",
+  //           text: "Let’s turn tasks into success—together.",
+  //           icon: "success",
+  //           confirmButtonText: "Get Started",
+  //         });
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //         Toast.fire({
+  //           icon: "error",
+  //           title: "Incorrect email or password",
+  //         });
+  //       });
+  //   };
 
-//   const handleGoogleLogIn = () => {
-//     googleLogIn()
-//       .then((result) => {
-//         const user = result.user;
-//         updateUser({ displayName: user.displayName, photoURL: user.photoURL })
-//           .then(() => {
-//             setUser({
-//               ...user,
-//               displayName: user.displayName,
-//               photoURL: user.photoURL,
-//             });
-//           })
-//           .catch((error) => {
-//             console.log(error);
-//             setUser(user);
-//           });
-//         navigate(`${location.state ? location.state : "/"}`);
+  //   const handleGoogleLogIn = () => {
+  //     googleLogIn()
+  //       .then((result) => {
+  //         const user = result.user;
+  //         updateUser({ displayName: user.displayName, photoURL: user.photoURL })
+  //           .then(() => {
+  //             setUser({
+  //               ...user,
+  //               displayName: user.displayName,
+  //               photoURL: user.photoURL,
+  //             });
+  //           })
+  //           .catch((error) => {
+  //             console.log(error);
+  //             setUser(user);
+  //           });
+  //         navigate(`${location.state ? location.state : "/"}`);
 
-//         Swal.fire({
-//           title: "Welcome to KAJERO.com!",
-//           text: "Let’s turn tasks into success—together.",
-//           icon: "success",
-//           confirmButtonText: "Get Started",
-//         });
-//       })
-//       .catch((error) => {
-//         Toast.fire({
-//           icon: "error",
-//           title: error,
-//         });
-//       });
-//   };
+  //         Swal.fire({
+  //           title: "Welcome to KAJERO.com!",
+  //           text: "Let’s turn tasks into success—together.",
+  //           icon: "success",
+  //           confirmButtonText: "Get Started",
+  //         });
+  //       })
+  //       .catch((error) => {
+  //         Toast.fire({
+  //           icon: "error",
+  //           title: error,
+  //         });
+  //       });
+  //   };
 
   return (
-    <div >
+    <div>
       <div className="hero bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-[size:16px_16px] min-h-screen">
-        
         <div className="hero-content  ">
           <div className="card md:px-24 md:py-12 bg-base-100 w-full lg:space-x-32 items-center grid lg:grid-cols-2 shrink-0 ">
             <div className="lg:order-1  mb-12 lg:mb-0 order-2">
@@ -116,7 +116,7 @@ const SignIn = () => {
                 </button>
               </Link>
 
-               <div className="text-center">
+              <div className="text-center">
                 <img
                   className="h-full mt-12 rounded-3xl w-48  mx-auto lg:w-72"
                   src={logo}
@@ -140,7 +140,7 @@ const SignIn = () => {
                       delaySpeed={1000}
                     />
                   </span>{" "}
-                  -  From Mind to Page.
+                  - From Mind to Page.
                 </h3>
               </div>
 
@@ -151,19 +151,26 @@ const SignIn = () => {
             </div>
 
             <div className="lg:order-2 order-1 ">
-             
-
               <div className="  gap-5 pb-8  flex flex-col flex-auto shadow-[32px_23px_59px_-2px_rgba(76,99,124,0.67),25px_27px_27px_-7px_rgba(209,217,230,0.34),-34px_-30px_65px_0px_rgba(255,255,255,0.75),-9px_-20px_29px_0px_rgba(255,255,255,0.54),-13px_-11px_22px_7px_rgba(255,255,255,0.25),-16px_-7px_21px_4px_rgba(255,255,255,0.25)] bg-[#4c637c]/10  mb-8 rounded-xl w-11/12 lg:w-10/12 mx-auto">
-              <div className="bg-[#0857a0]/20 rounded-t-xl rounded-b-[68px] text-center flex flex-col items-center justify-center h-48">
-
-               <h1 className="text-l px-10 leading-10  font-stretch-110%"> Welcome Back to <br /> <span className="text-4xl  ">Think<span className="bg-[#4c637c]/50 font-semibold px-[3px]">Tales™</span></span> </h1>
-               <p className="text-[12px] pl-36 text-gray-600"> -Where your thoughts <br /> become timeless tales.</p>              
-
-              </div>
-               
+                <div className="bg-[#0857a0]/20 rounded-t-xl rounded-b-[68px] text-center flex flex-col items-center justify-center h-48">
+                  <h1 className="text-l px-10 leading-10  font-stretch-110%">
+                    {" "}
+                    Welcome Back to <br />{" "}
+                    <span className="text-4xl  ">
+                      Think
+                      <span className="bg-[#4c637c]/50 font-semibold px-[3px]">
+                        Tales™
+                      </span>
+                    </span>{" "}
+                  </h1>
+                  <p className="text-[12px] pl-36 text-gray-600">
+                    {" "}
+                    -Where your thoughts <br /> become timeless tales.
+                  </p>
+                </div>
 
                 <form
-                //   onSubmit={handleLogin}
+                  //   onSubmit={handleLogin}
                   className="flex flex-col items-center w-10/12 mx-auto *:text-black "
                 >
                   <label className=" self-start lg:ml-7 ml-4 text-gray-600 font-bold ">
@@ -215,13 +222,14 @@ const SignIn = () => {
                   <button className="relative inline-flex items-center justify-center mt-4 w-6/12 mx-auto  p-4 px-5 py-3 overflow-hidden font-medium  transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-[#4c637c]">
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#4c637c] via-[#4c637c] to-[#4c637c]"></span>
                     <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-[#0857a0] rounded-full opacity-30 group-hover:rotate-90 ease"></span>
-                    <span className="relative text-white">Sign-In</span>
+                    <span className="relative flex gap-1 items-center text-white">
+                      {" "}
+                      <VscSignIn size={20} />
+                      Sign-In
+                    </span>
                   </button>
                 </form>
-                <p
-                  className= "text-center mx-auto flex gap-1 mt-2"
-                  
-                >
+                <p className="text-center mx-auto flex gap-1 mt-2">
                   Don’t have an account yet?{" "}
                   <Link to="/sign-up" className="text-[#4c637c] underline">
                     Sign Up
@@ -230,7 +238,7 @@ const SignIn = () => {
 
                 {/* Google */}
                 <button
-                //   onClick={handleGoogleLogIn}
+                  //   onClick={handleGoogleLogIn}
                   className="btn bg-white w-10/12 mx-auto text-black border-[#e5e5e5]"
                 >
                   <svg
