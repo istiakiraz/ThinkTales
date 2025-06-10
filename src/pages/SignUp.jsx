@@ -1,113 +1,116 @@
 import React, { use, useState } from "react";
-import logImg from "../../public/signup.json";
+import logImg from "../jsonFile/signup.json";
 import logo from "../assets/titleLogo.png";
 import { Link, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { motion } from "framer-motion";
-// import { AuthContext } from "../provider/AuthProvider";
-// import Swal from "sweetalert2";
-// import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
+
 import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import { GoArrowLeft } from "react-icons/go";
+import { RxOpenInNewWindow } from "react-icons/rx";
+import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
-  //   const Toast = Swal.mixin({
-  //     toast: true,
-  //     position: "top-end",
-  //     showConfirmButton: false,
-  //     timer: 3000,
-  //     timerProgressBar: true,
-  //     didOpen: (toast) => {
-  //       toast.onmouseenter = Swal.stopTimer;
-  //       toast.onmouseleave = Swal.resumeTimer;
-  //     },
-  //   });
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   const [showPass, setShowPass] = useState(false);
 
-  //   const { createUser, isDark, setUser, updateUser, googleLogIn } =
+  //   const { createUser, isDark, setUser, updateUser, } =
   //     use(AuthContext);
 
-  //   const { createUser, setLogIn, updateUser } = use(AuthContext);
+  const { createUser, googleLogIn, setUser, updateUser } = use(AuthContext);
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  //   const handleRegister = (e) => {
-  //     e.preventDefault();
+  const handleRegister = (e) => {
+    e.preventDefault();
 
-  //     const name = e.target.name.value;
-  //     const photo = e.target.photo.value;
-  //     const email = e.target.email.value;
-  //     const password = e.target.password.value;
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-  //     // console.log(name, photo, email, password);
+    console.log(name, photo, email, password);
 
-  //     createUser(email, password)
-  //       .then((result) => {
-  //         const user = result.user;
-  //         updateUser({ displayName: name, photoURL: photo })
-  //           .then(() => {
-  //             setUser({ ...user, displayName: name, photoURL: photo });
-  //           })
-  //           .catch((error) => {
-  //             console.log(error);
-  //             setUser(user);
-  //           });
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
 
-  //         navigate("/");
-  //         Swal.fire({
-  //           title: "Welcome to KAJERO.com!",
-  //           text: "Let’s turn tasks into success—together.",
-  //           icon: "success",
-  //           confirmButtonText: "Let's Get Started",
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         // console.log(error.message);
-  //         Toast.fire({
-  //           icon: "error",
-  //           title: `${error.message} 😢`,
-  //         });
-  //       });
-  //   };
+        const user = result.user;
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
 
-  //   const handleGoogleLogIn = () => {
-  //     googleLogIn()
-  //       .then((result) => {
-  //         const user = result.user;
+        navigate("/");
+        Swal.fire({
+          title: "Welcome to ThinkTales!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Let's Get Started",
+        });
+      })
+      .catch((error) => {
+        // console.log(error.message);
+        Toast.fire({
+          icon: "error",
+          title: `${error.message} 😢`,
+        });
+      });
+  };
 
-  //         // console.log(user.photoURL);
+  const handleGoogleLogIn = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
 
-  //         updateUser({ displayName: user.displayName, photoURL: user.photoURL })
-  //           .then(() => {
-  //             setUser({
-  //               ...user,
-  //               displayName: user.displayName,
-  //               photoURL: user.photoURL,
-  //             });
-  //           })
-  //           .catch((error) => {
-  //             console.log(error);
-  //             setUser(user);
-  //           });
+        console.log(user);
 
-  //         navigate(`${location.state ? location.state : "/"}`);
+        updateUser({ displayName: user.displayName, photoURL: user.photoURL })
+          .then(() => {
+            setUser({
+              ...user,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
 
-  //         Swal.fire({
-  //           title: "Welcome to KAJERO.com!",
-  //           text: "Let’s turn tasks into success—together.",
-  //           icon: "success",
-  //           confirmButtonText: "Get Started",
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         Toast.fire({
-  //           icon: "error",
-  //           title: error,
-  //         });
-  //       });
-  //   };
+        navigate(`${location.state ? location.state : "/"}`);
+
+        Swal.fire({
+          title: "Welcome to KAJERO.com!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Get Started",
+        });
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: "error",
+          title: error,
+        });
+      });
+  };
 
   return (
     <div className="hero bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-[size:16px_16px]  min-h-screen">
@@ -154,36 +157,34 @@ const SignUp = () => {
             </div>
           </div>
 
-          <motion.div className=" order-1 "
-          initial={{ opacity: 0, x: 50 }}
+          <motion.div
+            className=" order-1 "
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <div className="text-center mx-auto"></div>
             <div className="  gap-5 pb-8  flex flex-col flex-auto shadow-[-30px_20px_54px_-1px_rgba(76,99,124,0.67),25px_27px_27px_-7px_rgba(209,217,230,0.34),-34px_-30px_65px_0px_rgba(255,255,255,0.75),-9px_-20px_29px_0px_rgba(255,255,255,0.54),-13px_-11px_22px_7px_rgba(255,255,255,0.25),-16px_-7px_21px_4px_rgba(255,255,255,0.25)] bg-[#4c637c]/10  mb-8 rounded-xl w-11/12 lg:w-10/12 mx-auto">
-
-            <div className="bg-[#0857a0]/20 rounded-t-xl rounded-b-[68px] text-center flex flex-col items-center justify-center h-44">
-                  <h1 className="text-l px-10 leading-10  font-stretch-110%">
-                    {" "}
-                   Join Now <br />{" "}
-                    <span className="text-4xl  ">
-                      Think
-                      <span className="bg-[#4c637c]/50 font-semibold px-[3px]">
-                        Tales™
-                      </span>
-                    </span>{" "}
-                  </h1>
-                  <p className="text-[12px] pl-36 text-gray-600">
-                    {" "}
-                    -Your story deserves to <br /> be told — let’s begin.
-                  </p>
-                </div>
-
-
+              <div className="bg-[#0857a0]/20 rounded-t-xl rounded-b-[68px] text-center flex flex-col items-center justify-center h-44">
+                <h1 className="text-l px-10 leading-10  font-stretch-110%">
+                  {" "}
+                  Join Now <br />{" "}
+                  <span className="text-4xl  ">
+                    Think
+                    <span className="bg-[#4c637c]/50 font-semibold px-[3px]">
+                      Tales™
+                    </span>
+                  </span>{" "}
+                </h1>
+                <p className="text-[12px] pl-36 text-gray-600">
+                  {" "}
+                  -Your story deserves to <br /> be told — let’s begin.
+                </p>
+              </div>
 
               <form
-                //   onSubmit={handleRegister}
+                onSubmit={handleRegister}
                 className="flex *:text-black w-10/12 mx-auto  flex-col items-center "
               >
                 <label className=" self-start ml-4 text-gray-600 font-bold ">
@@ -352,7 +353,7 @@ const SignUp = () => {
                   <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-[#0857a0] rounded-full opacity-30 group-hover:rotate-90 ease"></span>
                   <span className="relative flex gap-1 items-center text-white">
                     {" "}
-                    {/* <VscSignIn size={20} /> */}
+                    <RxOpenInNewWindow size={20} />
                     Submit to Sign-Up
                   </span>
                 </button>
@@ -366,7 +367,7 @@ const SignUp = () => {
 
               {/* Google */}
               <button
-                //   onClick={handleGoogleLogIn}
+                onClick={handleGoogleLogIn}
                 className="btn bg-white w-10/12 mx-auto text-black border-[#e5e5e5]"
               >
                 <svg

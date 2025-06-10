@@ -1,104 +1,106 @@
 import React, { use, useRef, useState } from "react";
-import logImg from "../../public/login.json";
+import logImg from "../jsonFile/login.json";
 import logo from "../assets/titleLogo.png";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-// import Swal from "sweetalert2";
-// import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import { GoArrowLeft } from "react-icons/go";
 import { VscSignIn } from "react-icons/vsc";
+import { AuthContext } from "../provider/AuthProvider";
 
 const SignIn = () => {
-  //   const { isDark } = use(AuthContext);
-
-  //   const Toast = Swal.mixin({
-  //     toast: true,
-  //     position: "top-end",
-  //     showConfirmButton: false,
-  //     timer: 3000,
-  //     timerProgressBar: true,
-  //     didOpen: (toast) => {
-  //       toast.onmouseenter = Swal.stopTimer;
-  //       toast.onmouseleave = Swal.resumeTimer;
-  //     },
-  //   });
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   const [showPass, setShowPass] = useState(false);
 
-  //   const { signInUser, googleLogIn, setUser, updateUser } = use(AuthContext);
+  const { signInUser, googleLogIn, setUser, updateUser } = use(AuthContext);
 
   //   const { logInUser, googleLogIn, resetPass } = use(AuthContext);
 
-  //   const location = useLocation();
-  //   const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const emailRef = useRef();
 
-  //   const handleLogin = (e) => {
-  //     e.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  //     const email = e.target.email.value;
-  //     const password = e.target.password.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-  // console.log(email, password);
+    console.log(email, password);
 
-  //     signInUser(email, password)
-  //       .then((result) => {
-  //         console.log(result);
-  //         navigate(`${location.state ? location.state : "/"}`);
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result);
+        navigate(`${location.state ? location.state : "/"}`);
 
-  //         Swal.fire({
-  //           title: "Welcome to KAJERO.com!",
-  //           text: "Let’s turn tasks into success—together.",
-  //           icon: "success",
-  //           confirmButtonText: "Get Started",
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         Toast.fire({
-  //           icon: "error",
-  //           title: "Incorrect email or password",
-  //         });
-  //       });
-  //   };
+        Swal.fire({
+          title: "Welcome to ThinkTales!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Get Started",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        Toast.fire({
+          icon: "error",
+          title: "Incorrect email or password",
+        });
+      });
+  };
 
-  //   const handleGoogleLogIn = () => {
-  //     googleLogIn()
-  //       .then((result) => {
-  //         const user = result.user;
-  //         updateUser({ displayName: user.displayName, photoURL: user.photoURL })
-  //           .then(() => {
-  //             setUser({
-  //               ...user,
-  //               displayName: user.displayName,
-  //               photoURL: user.photoURL,
-  //             });
-  //           })
-  //           .catch((error) => {
-  //             console.log(error);
-  //             setUser(user);
-  //           });
-  //         navigate(`${location.state ? location.state : "/"}`);
+  const handleGoogleLogIn = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
 
-  //         Swal.fire({
-  //           title: "Welcome to KAJERO.com!",
-  //           text: "Let’s turn tasks into success—together.",
-  //           icon: "success",
-  //           confirmButtonText: "Get Started",
-  //         });
-  //       })
-  //       .catch((error) => {
-  //         Toast.fire({
-  //           icon: "error",
-  //           title: error,
-  //         });
-  //       });
-  //   };
+        console.log(user);
+
+        updateUser({ displayName: user.displayName, photoURL: user.photoURL })
+          .then(() => {
+            setUser({
+              ...user,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+
+        navigate(`${location.state ? location.state : "/"}`);
+
+        Swal.fire({
+          title: "Welcome to KAJERO.com!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Get Started",
+        });
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: "error",
+          title: error,
+        });
+      });
+  };
 
   return (
     <div className="hero bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-[size:16px_16px] min-h-screen">
@@ -170,7 +172,7 @@ const SignIn = () => {
               </div>
 
               <form
-                //   onSubmit={handleLogin}
+                onSubmit={handleLogin}
                 className="flex flex-col items-center w-10/12 mx-auto *:text-black "
               >
                 <label className=" self-start lg:ml-7 ml-4 text-gray-600 font-bold ">
@@ -238,7 +240,7 @@ const SignIn = () => {
 
               {/* Google */}
               <button
-                //   onClick={handleGoogleLogIn}
+                onClick={handleGoogleLogIn}
                 className="btn bg-white w-10/12 mx-auto text-black border-[#e5e5e5]"
               >
                 <svg
