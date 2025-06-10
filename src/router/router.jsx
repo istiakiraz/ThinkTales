@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import MainLayouts from "../layouts/MainLayouts";
 import HomePages from "../pages/HomePages";
+import AddBlog from "../pages/AddBlog";
+import SignIn from "../pages/SignIn";
  
 export const router = createBrowserRouter([
     {
@@ -9,10 +11,16 @@ export const router = createBrowserRouter([
      children: [
         {
             index: true,
-            Component: HomePages,
-            
-            
+            Component: HomePages,           
+        },
+        {
+            path:"add-blog",
+            element: <AddBlog></AddBlog>
         }
      ]
+    },
+    {
+        path: 'sign-in',
+        Component: SignIn
     }
 ])

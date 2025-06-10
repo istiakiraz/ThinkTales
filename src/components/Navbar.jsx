@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/titleLogo.png";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { IoHomeOutline } from "react-icons/io5";
 import { RiFunctionAddLine, RiLayoutHorizontalLine, RiPagesLine } from "react-icons/ri";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
@@ -33,16 +33,18 @@ const Navbar = () => {
       >
         <li className="flex gap-1 items-center"> <RiLayoutHorizontalLine /> All-Blogs</li>
       </NavLink>
+
       <NavLink
         className={({ isActive }) =>
           isActive
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
             : " hover:underline"
         }
-        to="/jj"
+        to="/add-blog"
       >
         <li className="flex gap-1 items-center"> <RiFunctionAddLine /> Add-Blog</li>
       </NavLink>
+
       <NavLink
         className={({ isActive }) =>
           isActive
@@ -77,7 +79,7 @@ const Navbar = () => {
 
   return (
     <div className=" bg-base-100/20 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
-      <div className="navbar lg:w-9/12 mx-auto ">
+      <div className="navbar md:w-11/12 lg:w-9/12 mx-auto ">
         <div className="navbar-start">
           <img className="w-42" src={logo} alt="ThinkTales" />
         </div>
@@ -89,7 +91,7 @@ const Navbar = () => {
         <div className="navbar-end">
           <span className="flex items-center  gap-4">
             <span
-              className=" md:hidden mr-1 cursor-pointer  p-1 rounded-l"
+              className=" lg:hidden mr-1 cursor-pointer  p-1 rounded-l"
               onClick={() => setShow(!show)}
             >
               {show ? (
@@ -100,7 +102,7 @@ const Navbar = () => {
             </span>
 
             <ul
-              className={`md:hidden absolute   flex flex-col *:border-gray-100 *:border-b-1 *:pb-2 *:pr-20 duration-1000  bg-[#4c637c]/40 p-4  ${
+              className={`lg:hidden absolute   flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000   bg-[#4c637c]/30 p-4  ${
                 show ? "right-2 top-18" : "-right-60 top-18"
               }`}
             >
@@ -108,7 +110,9 @@ const Navbar = () => {
             </ul>
           </span>
 
-          <a         
+         <Link to='/sign-in'>
+         
+          <button         
             className="px-5 py-2.5 relative rounded group font-medium text-white inline-block"
           >
             <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#4c637c] to-[#bbd4ee]"></span>
@@ -116,7 +120,8 @@ const Navbar = () => {
             <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#4c637c] to-[#bbd4ee]"></span>
             <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#4c637c] from-[#bbd4ee]"></span>
             <span className="relative">Sign In</span>
-          </a>
+          </button>
+         </Link>
         </div>
       </div>
     </div>
