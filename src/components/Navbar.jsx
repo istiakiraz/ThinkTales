@@ -95,7 +95,7 @@ const Navbar = () => {
           <img className="w-42" src={logo} alt="ThinkTales" />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className=" flex gap-8 text-xl menu-horizontal px-1">{links}</ul>
+          <ul className=" flex gap-8 text-xl menu-horizontal *:text-[#4c637c] px-1">{links}</ul>
         </div>
         <div className="navbar-end">
           <span className="flex items-center  gap-4">
