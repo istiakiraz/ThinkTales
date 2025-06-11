@@ -11,19 +11,21 @@ import { motion } from "framer-motion";
 import { MdDescription, MdOutlineSubtitles } from "react-icons/md";
 import { TbCategory2, TbFileDescription, TbPhotoPlus } from "react-icons/tb";
 import { GiClick } from "react-icons/gi";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddBlog = () => {
-  // const Toast = Swal.mixin({
-  //     toast: true,
-  //     position: "top-end",
-  //     showConfirmButton: false,
-  //     timer: 3000,
-  //     timerProgressBar: true,
-  //     didOpen: (toast) => {
-  //       toast.onmouseenter = Swal.stopTimer;
-  //       toast.onmouseleave = Swal.resumeTimer;
-  //     },
-  //   });
+  const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
 
   // const navigate = useNavigate()
 
@@ -35,19 +37,40 @@ const AddBlog = () => {
     const form = e.target;
 
     const formData = new FormData(form);
-    const newTask = Object.fromEntries(formData.entries());
+    const newBlog = Object.fromEntries(formData.entries());
 
     const today = new Date();
     const dateOnly = today.toISOString().split("T")[0];
 
-    newTask.userPhoto = user?.photoURL;
-    newTask.userName = user?.displayName;
-    newTask.userEmail = user?.email;
-    newTask.date = dateOnly;
+    newBlog.userPhoto = user?.photoURL;
+    newBlog.userName = user?.displayName;
+    newBlog.userEmail = user?.email;
+    newBlog.date = dateOnly;
 
-    console.log(newTask);
+    console.log(newBlog);
 
-    // send task data to the DB
+    // send blog data on the DB
+
+    axios
+    .post('http://localhost:3000/blogs', newBlog)
+    .then((res)=>{
+        console.log('after add blog data ',res.data);
+        if(res.data.insertedId){           
+        Toast.fire({
+            icon: "success",
+            title: "Blog successfully posted!",
+          });
+
+        }
+
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+
+
+
+
     // fetch('https://kajero-server.vercel.app/tasks',{
     //   method: 'POST',
     //   headers:{
