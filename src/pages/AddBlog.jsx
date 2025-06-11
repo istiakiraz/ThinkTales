@@ -4,9 +4,13 @@ import { Link } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
 import logo from "../assets/titleLogo.png";
 import write from "../assets/coding-3-24.svg";
+import pic from "../assets/add1.svg";
+import pic2 from "../assets/add2.svg";
+import pic3 from "../assets/add3.svg";
 import { motion } from "framer-motion";
 import { MdDescription, MdOutlineSubtitles } from "react-icons/md";
 import { TbCategory2, TbFileDescription, TbPhotoPlus } from "react-icons/tb";
+import { GiClick } from "react-icons/gi";
 
 const AddBlog = () => {
   // const Toast = Swal.mixin({
@@ -74,7 +78,7 @@ const AddBlog = () => {
       </Link>
 
       <div className="bg-[#4c637c]/20 rounded-xl">
-        <div className="lg:w-8/12  lg:px-12 w-11/12 py-12 mx-auto">
+        <div className="lg:w-8/12 relative  lg:px-12 w-11/12 py-12 mx-auto">
           <h1 className="text-center shadow-[0px_0px_20px_0px_rgba(76,99,124,0.8)] text-gray-600 lg:px-12 text-3xl mb-8 w-fit mx-auto flex flex-col items-center  bg-[#4c637c]/20 p-4 rounded-2xl ">
             {" "}
             <motion.img
@@ -94,6 +98,12 @@ const AddBlog = () => {
             invite you to give those thoughts a voice. This is your space to
             reflect, express, and explore.
           </p>
+
+    <img className="w-64 top-50 hidden lg:block opacity-60 -left-40 -rotate-20 absolute" src={pic} alt="pic" />
+    <img className="w-64  bottom-20 hidden lg:block opacity-60 -right-40 -rotate-20 absolute" src={pic} alt="pic" />
+    <img className="w-64  -top-10 hidden lg:block opacity-50 -right-20 rotate-10 absolute" src={pic2} alt="pic" />
+    <img className="w-64  top-135 hidden lg:block opacity-50 right-80  absolute" src={pic3} alt="pic" />
+
 
           <form onSubmit={handleSubmit} className="">
             <div>
@@ -121,7 +131,7 @@ const AddBlog = () => {
                   name="category"
                   required
                   defaultValue=""
-                  className="input mb-2 bg-gray-300 placeholder:text-gray-600  lg:w-52 w-full"
+                  className="input mb-2 bg-gray-100 placeholder:text-gray-600  lg:w-52 w-full"
                 >
                   <option disabled value="">
                     Pick a blog category
@@ -188,7 +198,8 @@ const AddBlog = () => {
               className="btn col-span-full flex w-full lg:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  "
             >
               <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-50 rotate-12 group-hover:-translate-x-40 ease"></span>
-              <span className="relative">Post</span>
+              <span className="relative flex items-center gap-1"> <GiClick size={20} />
+ Post</span>
             </button>
           </form>
         </div>
