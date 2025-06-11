@@ -114,7 +114,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className=" bg-base-100/20 rounded-4xl lg:mt-3 py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
+    <div className=" bg-base-100 rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
       <div className="navbar md:w-11/12 lg:w-9/12 mx-auto ">
         <div className="navbar-start">
           <img className="w-42" src={logo} alt="ThinkTales" />
