@@ -138,8 +138,8 @@ const Navbar = () => {
             </span>
 
             <ul
-              className={`lg:hidden absolute   flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000   bg-[#4c637c]/30 p-4  ${
-                show ? "right-2 top-21" : "-right-60 top-21"
+              className={`lg:hidden absolute   flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000  z-50 bg-[#4c637c]/60 p-4  ${
+                show ? "right-2  top-21" : "-right-60 top-21"
               }`}
             >
               {links}

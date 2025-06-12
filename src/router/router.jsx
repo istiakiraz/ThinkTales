@@ -12,7 +12,8 @@ export const router = createBrowserRouter([
      children: [
         {
             index: true,
-            Component: HomePages,           
+            Component: HomePages,
+            loader: () => fetch('http://localhost:3000/blogs/recent')           
         },
         {
             path:"add-blog",

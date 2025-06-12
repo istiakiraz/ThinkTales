@@ -60,6 +60,7 @@ const AddBlog = () => {
             icon: "success",
             title: "Blog successfully posted!",
           });
+          form.reset(); 
 
         }
 
@@ -68,23 +69,6 @@ const AddBlog = () => {
         console.log(error);
     })
 
-
-
-
-    // fetch('https://kajero-server.vercel.app/tasks',{
-    //   method: 'POST',
-    //   headers:{
-    //     "content-type" : "application/json"
-    //   },
-    //   body: JSON.stringify(newTask)
-    // }).then(res=> res.json()).then(data=> {
-    //   console.log('after add task data ', data);
-    //   navigate(`/my-tasks/${user.email}`)
-    //    Toast.fire({
-    //         icon: "success",
-    //         title: "Your add new task successfully!",
-    //       });
-    // })
   };
 
   return (
