@@ -61,7 +61,7 @@ const Navbar = () => {
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
             : " hover:underline"
         }
-        to="/fff"
+        to="/all-blogs"
       >
         <li className="flex gap-1 items-center">
           {" "}

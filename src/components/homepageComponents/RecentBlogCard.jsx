@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong, FaHashtag } from "react-icons/fa6";
 import { GoHeart } from "react-icons/go";
 
 import { Link } from "react-router";
@@ -8,7 +8,7 @@ const RecentBlogCard = ({ blog }) => {
   const dateStr = blog.date;
   const date = new Date(dateStr);
 
-  const day = date.getDate(); // 12
+  const day = date.getDate();
   const month = date.toLocaleString("en-GB", { month: "long" });
 
   return (
@@ -20,19 +20,21 @@ const RecentBlogCard = ({ blog }) => {
           src={blog.photo}
           alt={blog.title}
         />
-       <div className="flex justify-between">
-         <div className="text-gray-500">
-          <h4 className="lg:text-8xl text-4xl font-bold">{day}</h4>
-          <h2 className="lg:text-4xl text-2xl font-semibold ">{month}</h2>
-          <h4 className="text-sm mt-3 font-semibold text-[#4c637c]">Tag: {blog.category}</h4>
+        <div className="flex justify-between">
+          <div className="text-gray-500">
+            <h4 className="lg:text-8xl text-4xl font-bold">{day}</h4>
+            <h2 className="lg:text-4xl text-2xl font-semibold ">{month}</h2>
+            <h4 className="text-sm mt-3 font-semibold flex gap-1 items-center text-[#4c637c]">
+              <FaHashtag />
+              Tag: {blog.category}
+            </h4>
+          </div>
+          <div>
+           <Link> <button className="btn mt-8 flex gap-1 items-center text-white bg-gradient-to-r from-[#4c637c] to-[#6b7e94] hover:from-[#3d5267] hover:to-[#5a6c80] transition-all duration-300">
+              Add to Wishlist <GoHeart size={16} />
+            </button></Link>
+          </div>
         </div>
-        <div>
-           <button className="btn mt-8 flex gap-1 items-center text-white bg-gradient-to-r from-[#4c637c] to-[#6b7e94] hover:from-[#3d5267] hover:to-[#5a6c80] transition-all duration-300">
-  Add to Wishlist <GoHeart size={16} />
-</button>
-        </div>
-        
-       </div>
       </div>
       <div className="py-8 ">
         <h1 className="text-xl -mt-10 lg:mt-0 text-gray-600 hyphens-auto font-bold">
