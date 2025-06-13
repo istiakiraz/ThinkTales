@@ -6,6 +6,7 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import AllBlogs from "../pages/AllBlogs";
 import BlogDetails from "../pages/BlogDetails";
+import FeaturedBlogs from "../pages/FeaturedBlogs";
  
 export const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
         {
             index: true,
             Component: HomePages,
-            loader: () => fetch('http://localhost:3000/blogs/recent')           
+            loader: ()=> fetch('http://localhost:3000/blogs/recent')           
         },
         {
             path:"add-blog",
@@ -29,6 +30,11 @@ export const router = createBrowserRouter([
             path: 'blog-details/:id',
             element: <BlogDetails></BlogDetails>,
             loader: ({params})=> fetch(`http://localhost:3000/blogs/${params.id}`)
+        },
+        {
+            path:'featured-blogs',
+            Component: FeaturedBlogs,
+            loader: ()=> fetch('http://localhost:3000/blogs/featured')
         }
      ]
     },

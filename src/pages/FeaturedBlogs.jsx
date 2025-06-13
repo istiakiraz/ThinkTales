@@ -1,0 +1,100 @@
+import React from "react";
+import { Link, useLoaderData } from "react-router";
+import "ka-table/style.css";
+
+import { Table } from "ka-table";
+import { EditingMode, SortingMode } from "ka-table/enums";
+
+const FeaturedBlogs = () => {
+  const featuredBlogs = useLoaderData();
+
+  const dataWithSerial = featuredBlogs.map((blog) => ({
+    ...blog,
+  }));
+
+  return (
+    <div className="w-[95%] lg:w-10/12 py-8 mx-auto">
+        <h1 className="text-4xl py-5 text-center">Featured-Blogs</h1>
+      <div className="overflow-x-auto border border-gray-200 rounded-lg">
+        <div className="min-w-[800px]">
+          <Table
+            columns={[
+              {
+                key: "photo",
+                title: "Photo",
+                dataType: "string",
+                style: { textAlign: "center" },
+                width: 100,
+              },
+              {
+                key: "title",
+                title: "Title",
+                dataType: "string",
+                width: 200,
+              },
+              {
+                key: "category",
+                title: "Category",
+                dataType: "string",
+                width: 150,
+              },
+              {
+                key: "short_Description",
+                title: "Short Description",
+                dataType: "string",
+                minWidth: 250,
+              },
+              {
+                key: "details",
+                title: "Details",
+                dataType: "string",
+                style: { textAlign: "center" },
+                width: 120,
+              },
+            ]}
+            data={dataWithSerial}
+            rowKeyField={"_id"}
+            sortingMode={SortingMode.Single}
+            editingMode={EditingMode.None}
+            childComponents={{
+              cellText: {
+                content: ({ column, rowData }) => {
+                  switch (column.key) {
+                    case "photo":
+                      return (
+                        <img
+                          src={rowData.photo}
+                          alt={rowData.title}
+                          className="w-12 h-12 object-cover rounded mx-auto"
+                        />
+                      );
+                    case "details":
+                      return (
+                        <Link to={`/blog-details/${rowData._id}`}>
+                          <button className="btn mt-2 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
+                            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                            <span className="relative flex gap-1 items-center">
+                              {" "}
+                              Details
+                            </span>
+                          </button>
+                        </Link>
+                      );
+                    default:
+                      return (
+                        <div className="text-sm break-words whitespace-normal">
+                          {rowData[column.key]}
+                        </div>
+                      );
+                  }
+                },
+              },
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeaturedBlogs;
