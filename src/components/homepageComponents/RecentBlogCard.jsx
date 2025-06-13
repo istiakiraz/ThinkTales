@@ -59,7 +59,7 @@ const RecentBlogCard = ({ blog }) => {
         <h3 className=" mt-4 selection:bg-[#4c637c] selection:text-white pt-4 border-gray-400 hyphens-auto text-justify line-clamp-8 border-t-2">
           {blog.long_Description}
         </h3>
-        <Link>
+        <Link to={`/blog-details/${blog._id}`}>
           <button className="group cursor-pointer  relative uppercase flex gap-1 items-center  text-[#4c637c] bg-[#4c637c]/5 px-1 mt-5">
             Continue Reading <FaArrowRightLong />
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4c637c] transition-all duration-300 group-hover:w-full"></span>

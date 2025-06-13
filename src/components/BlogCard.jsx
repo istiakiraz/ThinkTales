@@ -47,10 +47,10 @@ const BlogCard = ({ blog }) => {
           <span className="text-gray-500">Publish Date:</span> {blog.date}
         </h4>
 
-        <h3 className=" mt-4  text-gray-500  hyphens-auto text-left line-clamp-5 lg:line-clamp-3 ">
+        <h3 className=" mt-4  text-gray-500 selection:bg-[#4c637c] selection:text-white  hyphens-auto text-left line-clamp-5 lg:line-clamp-3 ">
           {blog.long_Description}
         </h3>
-        <Link>
+        <Link to={`/blog-details/${blog._id}`} >
           <button className="group cursor-pointer relative uppercase text-sm mb-2 flex gap-1 items-center  text-[#4c637c] bg-[#4c637c]/5 px-1 mt-3">
             Continue Reading <FaArrowRightLong />
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4c637c] transition-all duration-300 group-hover:w-full"></span>
@@ -67,7 +67,7 @@ const BlogCard = ({ blog }) => {
           </button>
         </Link>
 
-        <h4 className="text-[12px] ml-50 md:ml-150 lg:ml-50 mt-2 flex  items-center font-[300] text-[#4c637c]">
+        <h4 className="text-[12px] ml-45 md:ml-150 lg:ml-50 mt-2 flex  items-center font-[300] text-[#4c637c]">
           {" "}
           <FaHashtag />
          <span className="text-gray-500">Tag:</span>  {blog.category}

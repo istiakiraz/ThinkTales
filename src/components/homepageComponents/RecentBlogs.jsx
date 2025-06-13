@@ -3,7 +3,7 @@ import RecentBlogCard from "./RecentBlogCard";
 import { motion } from "framer-motion";
 
 const RecentBlogs = ({ blogData }) => {
-  console.log(blogData);
+ 
 
   return (
     <motion.div
