@@ -39,7 +39,7 @@ const BlogCard = ({ blog }) => {
           </h4>
         </div>
         }
-        <h1 className="text-xl   text-gray-600 hyphens-auto font-medium">
+        <h1 className="text-xl selection:bg-[#4c637c] selection:text-white   text-gray-600 hyphens-auto font-medium">
           {blog.title}
         </h1>
 

@@ -5,6 +5,7 @@ import { GoHeart } from "react-icons/go";
 import { Link } from "react-router";
 
 const RecentBlogCard = ({ blog }) => {
+  
   const dateStr = blog.date;
   const date = new Date(dateStr);
 
@@ -43,7 +44,7 @@ const RecentBlogCard = ({ blog }) => {
         </div>
       </div>
       <div className="py-8 ">
-        <h1 className="text-xl -mt-10 lg:mt-0 text-gray-600 hyphens-auto font-bold">
+        <h1 className="text-xl selection:bg-[#4c637c] selection:text-white -mt-10 lg:mt-0 text-gray-600 hyphens-auto font-bold">
           {blog.title}
         </h1>
         <div className="flex bg-gray-400 pl-1 border-b-2 mt-2 pr-2 py-1 w-fit gap-2 items-center  rounded-4xl">
