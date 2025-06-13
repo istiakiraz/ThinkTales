@@ -46,26 +46,30 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
-            : " hover:underline"
+            : " group relative px-3"
         }
         to="/"
       >
-        <li className="flex gap-1 items-center">
+        <li className="flex gap-1 items-center relative overflow-hidden">
           {" "}
-          <IoHomeOutline /> Home
+          <IoHomeOutline /> 
+           <span className="relative z-10">Home</span>
+           <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
+
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
-            : " hover:underline"
+            ? "bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl"
+            : "group relative px-3"
         }
         to="/all-blogs"
       >
-        <li className="flex gap-1 items-center">
-          {" "}
-          <RiLayoutHorizontalLine /> All-Blogs
+        <li className="flex gap-1 items-center relative overflow-hidden">
+          <RiLayoutHorizontalLine />
+          <span className="relative z-10">All-Blogs</span>
+          <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
 
@@ -73,13 +77,14 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
-            : " hover:underline"
+            : "group relative px-3"
         }
         to="/add-blog"
       >
-        <li className="flex gap-1 items-center">
+        <li className="flex gap-1 items-center relative overflow-hidden">
           {" "}
-          <RiFunctionAddLine /> Add-Blog
+          <RiFunctionAddLine />   <span className="relative z-10">Add-Blog</span>
+          <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
 
@@ -87,27 +92,29 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
-            : " hover:underline"
+            : "group relative px-3"
         }
-        to="/hh"
+        to="/add-blogfff"
       >
-        <li className="flex gap-1 items-center">
+        <li className="flex gap-1 items-center relative overflow-hidden">
           {" "}
-          <MdOutlineFeaturedPlayList /> Featured-Blogs
+         <MdOutlineFeaturedPlayList />   <span className="relative z-10">  Featured-Blogs</span>
+          <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
 
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? " bg-[#E1EEBC]/20 px-3 border border-[#E1EEBC] rounded-2xl    "
-            : " hover:underline"
+            ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
+            : "group relative px-3"
         }
-        to="/all-tasks"
+        to="/add-blogfdffff"
       >
-        <li className="flex gap-1 items-center">
+        <li className="flex gap-1 items-center relative overflow-hidden">
           {" "}
-          <PiBookBookmarkLight /> Wishlist
+         <PiBookBookmarkLight />    <span className="relative z-10"> Wishlist</span>
+          <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
     </>
@@ -117,7 +124,7 @@ const Navbar = () => {
     <div className=" bg-base-100 rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
       <div className="navbar md:w-11/12 lg:w-9/12 mx-auto ">
         <div className="navbar-start">
-          <img className="w-42" src={logo} alt="ThinkTales" />
+          <Link to='/'><img className="w-42" src={logo} alt="ThinkTales" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className=" flex gap-8 text-xl menu-horizontal *:text-[#4c637c] px-1">
@@ -138,8 +145,8 @@ const Navbar = () => {
             </span>
 
             <ul
-              className={`lg:hidden absolute   flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000  z-50 bg-[#4c637c]/60 p-4  ${
-                show ? "right-2  top-21" : "-right-60 top-21"
+              className={`lg:hidden absolute   flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000  z-50 bg-gray-400 p-4  ${
+                show ? "right-2  top-21" : "-right-70 top-21"
               }`}
             >
               {links}
@@ -166,55 +173,57 @@ const Navbar = () => {
                 <>
                   {" "}
                   <li>
-                    
-                      <button
-                        onClick={handleSignOut}
-                        className="px-5 py-2.5  relative rounded group font-medium text-white"
-                      >
-                        <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#4c637c] to-[#bbd4ee]"></span>
-                        <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#4c637c] to-[#bbd4ee]"></span>
-                        <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#4c637c] to-[#bbd4ee]"></span>
-                        <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#4c637c] from-[#bbd4ee]"></span>
-                        <span className="relative flex items-center gap-1 ">
-                          {" "}
-                          <IoIosLogOut size={20} /> Sign Out
-                        </span>
-                      </button>
+                    <button
+                      onClick={handleSignOut}
+                      className="px-5 py-2.5  relative rounded group font-medium text-white"
+                    >
+                      <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-[#4c637c] to-[#bbd4ee]"></span>
+                      <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#4c637c] to-[#bbd4ee]"></span>
+                      <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#4c637c] to-[#bbd4ee]"></span>
+                      <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#4c637c] from-[#bbd4ee]"></span>
+                      <span className="relative flex items-center gap-1 ">
+                        {" "}
+                        <IoIosLogOut size={20} /> Sign Out
+                      </span>
+                    </button>
                   </li>
                 </>
               )}
             </ul>
           </span>
           <div className="space-x-2 flex">
-            {
-              !user ? <>
-              <Link to="/sign-in">
-              <button className="relative px-5 py-2.5 overflow-hidden font-medium text-[#4c637c] bg-gray-100 border border-gray-100 rounded-lg shadow-inner group">
-                <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-[#4c637c] group-hover:w-full ease"></span>
-                <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-[#4c637c] group-hover:w-full ease"></span>
-                <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
-                <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
-                <span className="absolute inset-0 w-full h-full duration-300 delay-300  bg-gradient-to-br from-[#4c637c] opacity-0 group-hover:opacity-100"></span>
-                <span className="relative transition-colors duration-300 delay-200 flex gap-1 items-center group-hover:text-white ease">
-                  <VscSignIn size={20} /> Sign In
-                </span>
-              </button>
-            </Link>
-              </> : <>
-              
-              <button onClick={handleSignOut} className="relative px-5 py-2.5 overflow-hidden hidden lg:block font-medium text-[#4c637c] bg-gray-100 border border-gray-100 rounded-lg shadow-inner group">
-                <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-[#4c637c] group-hover:w-full ease"></span>
-                <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-[#4c637c] group-hover:w-full ease"></span>
-                <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
-                <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
-                <span className="absolute inset-0 w-full h-full duration-300 delay-300  bg-gradient-to-br from-[#4c637c] opacity-0 group-hover:opacity-100"></span>
-                <span className="relative transition-colors duration-300 delay-200 flex gap-1 items-center group-hover:text-white ease">
-                  <IoIosLogOut size={20} /> Sign Out
-                </span>
-              </button>
-           
+            {!user ? (
+              <>
+                <Link to="/sign-in">
+                  <button className="relative px-5 py-2.5 overflow-hidden font-medium text-[#4c637c] bg-gray-100 border border-gray-100 rounded-lg shadow-inner group">
+                    <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-[#4c637c] group-hover:w-full ease"></span>
+                    <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-[#4c637c] group-hover:w-full ease"></span>
+                    <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
+                    <span className="absolute inset-0 w-full h-full duration-300 delay-300  bg-gradient-to-br from-[#4c637c] opacity-0 group-hover:opacity-100"></span>
+                    <span className="relative transition-colors duration-300 delay-200 flex gap-1 items-center group-hover:text-white ease">
+                      <VscSignIn size={20} /> Sign In
+                    </span>
+                  </button>
+                </Link>
               </>
-            }
+            ) : (
+              <>
+                <button
+                  onClick={handleSignOut}
+                  className="relative px-5 py-2.5 overflow-hidden hidden lg:block font-medium text-[#4c637c] bg-gray-100 border border-gray-100 rounded-lg shadow-inner group"
+                >
+                  <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-[#4c637c] group-hover:w-full ease"></span>
+                  <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-[#4c637c] group-hover:w-full ease"></span>
+                  <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#4c637c] group-hover:h-full ease"></span>
+                  <span className="absolute inset-0 w-full h-full duration-300 delay-300  bg-gradient-to-br from-[#4c637c] opacity-0 group-hover:opacity-100"></span>
+                  <span className="relative transition-colors duration-300 delay-200 flex gap-1 items-center group-hover:text-white ease">
+                    <IoIosLogOut size={20} /> Sign Out
+                  </span>
+                </button>
+              </>
+            )}
 
             {!user ? (
               <>

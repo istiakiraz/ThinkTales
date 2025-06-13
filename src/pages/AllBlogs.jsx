@@ -70,7 +70,7 @@ const AllBlogs = () => {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 mt-20 lg:grid-cols-3  gap-16 pb-16">
+      <div className="grid grid-cols-1 mt-20 lg:grid-cols-2  gap-16 pb-16">
         {loading ? (
           <p className="col-span-full text-center text-gray-500">Loading...</p>
         ) : blogs.length > 0 ? (

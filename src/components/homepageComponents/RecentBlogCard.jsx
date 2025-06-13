@@ -24,15 +24,21 @@ const RecentBlogCard = ({ blog }) => {
           <div className="text-gray-500">
             <h4 className="lg:text-8xl text-4xl font-bold">{day}</h4>
             <h2 className="lg:text-4xl text-2xl font-semibold ">{month}</h2>
-            <h4 className="text-sm mt-3 font-semibold flex gap-1 items-center text-[#4c637c]">
+            <h4 className="text-sm mt-3 font-semibold flex  items-center text-[#4c637c]">
               <FaHashtag />
               Tag: {blog.category}
             </h4>
           </div>
           <div>
-           <Link> <button className="btn mt-8 flex gap-1 items-center text-white bg-gradient-to-r from-[#4c637c] to-[#6b7e94] hover:from-[#3d5267] hover:to-[#5a6c80] transition-all duration-300">
-              Add to Wishlist <GoHeart size={16} />
-            </button></Link>
+             <Link>
+                    <button className="btn mt-8 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
+                      <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                      <span className="relative flex gap-1 items-center">
+                        {" "}
+                        Add to Wishlist <GoHeart size={16} />
+                      </span>
+                    </button>
+                  </Link>
           </div>
         </div>
       </div>
@@ -50,11 +56,11 @@ const RecentBlogCard = ({ blog }) => {
             {blog.userName}
           </h4>
         </div>
-        <h3 className=" mt-4 pt-4 border-gray-400 hyphens-auto text-justify line-clamp-8 border-t-2">
+        <h3 className=" mt-4 selection:bg-[#4c637c] selection:text-white pt-4 border-gray-400 hyphens-auto text-justify line-clamp-8 border-t-2">
           {blog.long_Description}
         </h3>
         <Link>
-          <button className="group relative uppercase flex gap-1 items-center  text-[#4c637c] bg-[#4c637c]/5 px-1 mt-5">
+          <button className="group cursor-pointer  relative uppercase flex gap-1 items-center  text-[#4c637c] bg-[#4c637c]/5 px-1 mt-5">
             Continue Reading <FaArrowRightLong />
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4c637c] transition-all duration-300 group-hover:w-full"></span>
           </button>
