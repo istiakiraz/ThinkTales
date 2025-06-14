@@ -43,17 +43,11 @@ const EditBlog = () => {
     const formData = new FormData(form);
     const newBlog = Object.fromEntries(formData.entries());
 
-    // const today = new Date();
-    // const dateOnly = today.toISOString().split("T")[0];
-
-    // newBlog.userPhoto = user?.photoURL;
-    // newBlog.userName = user?.displayName;
-    // newBlog.userEmail = user?.email;
-    // newBlog.date = dateOnly;
+  
 
     console.log(newBlog);
 
-    // send blog data on the DB
+    // edit blog data on the DB
 
     axios
     .patch(`http://localhost:3000/blogs/${blog._id}`, newBlog)
