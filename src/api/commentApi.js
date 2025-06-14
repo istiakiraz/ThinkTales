@@ -1,3 +1,3 @@
-// export const commentPromise = () =>{
-//     return fetch('http://localhost:3000/comment').then(res=> res.json())
-// }
+export const commentPromise = (query) =>{
+    return fetch(`http://localhost:3000/comments/${query}`).then(res=> res.json())
+}

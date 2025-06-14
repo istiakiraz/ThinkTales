@@ -3,7 +3,9 @@ import { FaArrowRightLong, FaFacebook, FaSquareInstagram, FaTwitter } from "reac
 import { Link, useLoaderData } from "react-router";
 import { recentBlogsPromise } from "../api/recentBlogsApi";
 import { AuthContext } from "../provider/AuthProvider";
-import Comment from "../components/Comment";
+// import Comment from "../components/Comment";
+import PostComment from "../components/PostComment";
+// import { commentPromise } from "../api/commentApi";
 
 const BlogDetails = () => {
   const [recent, setRecent] = useState([]);
@@ -115,8 +117,9 @@ const BlogDetails = () => {
       </div>
 
       {/* comment section */}
+     
       <div>
-            <Comment blog={blog} ></Comment>
+        <PostComment  blog={blog} ></PostComment>
       </div>
     </div>
   );

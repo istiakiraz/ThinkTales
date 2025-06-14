@@ -1,22 +1,31 @@
 import axios from "axios";
-import React from "react";
+import React, { use } from "react";
 import { FaRegComment } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
-const Comment = ({ blog }) => {
+const Comment = ({ blog, handleNewComment }) => {
+  const { user } = use(AuthContext);
 
-      const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
+  const formatted = new Date().toLocaleString("en-GB", {
+  day: "2-digit",
+  month: "long",
+  hour: "numeric",
+  hour12: true,
+  timeZone: "Asia/Dhaka",
+});
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -25,37 +34,35 @@ const Comment = ({ blog }) => {
 
     const commentData = {
       comment,
-      userEmail: blog.userEmail,
-      userName: blog.userName,
-      userPhoto: blog.userPhoto,
-        comment_id : blog._id,
-        date: new Date().toISOString()
+      userEmail: user.email,
+      userName: user.displayName,
+      userPhoto: user.photoURL,
+      comment_id: blog._id,
+      date: formatted
     };
 
     console.log(commentData);
 
-     // post comment data on the DB
+    // post comment data on the DB
 
     axios
-    .post('http://localhost:3000/comments', commentData)
-    .then((res)=>{
-        console.log('after add comment data ',res.data);
-        if(res.data.insertedId){           
-        Toast.fire({
+      .post("http://localhost:3000/comments", commentData)
+      .then((res) => {
+        console.log("after add comment data ", res.data);
+        if (res.data.insertedId) {
+          Toast.fire({
             icon: "success",
             title: "Comment post successfully!",
           });
 
-          e.target.reset(); 
+          handleNewComment(commentData)
 
+          e.target.reset();
         }
-
-    })
-    .catch((error)=>{
+      })
+      .catch((error) => {
         console.log(error);
-    })
-
-
+      });
   };
 
   return (
@@ -77,6 +84,9 @@ const Comment = ({ blog }) => {
         </button>
       </form>
     </div>
+    
+
+
   );
 };
 
