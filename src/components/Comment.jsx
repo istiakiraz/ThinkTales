@@ -1,7 +1,23 @@
+import axios from "axios";
 import React from "react";
 import { FaRegComment } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const Comment = ({ blog }) => {
+
+      const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+
+
   const handleComment = (e) => {
     e.preventDefault();
 
@@ -17,6 +33,29 @@ const Comment = ({ blog }) => {
     };
 
     console.log(commentData);
+
+     // post comment data on the DB
+
+    axios
+    .post('http://localhost:3000/comments', commentData)
+    .then((res)=>{
+        console.log('after add comment data ',res.data);
+        if(res.data.insertedId){           
+        Toast.fire({
+            icon: "success",
+            title: "Comment post successfully!",
+          });
+
+          e.target.reset(); 
+
+        }
+
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+
+
   };
 
   return (
