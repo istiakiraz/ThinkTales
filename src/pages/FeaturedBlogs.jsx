@@ -82,7 +82,7 @@ const FeaturedBlogs = () => {
                       );
                     default:
                       return (
-                        <div className="text-sm break-words whitespace-normal">
+                        <div className="text-sm lg:text-[16px] break-words whitespace-normal">
                           {rowData[column.key]}
                         </div>
                       );

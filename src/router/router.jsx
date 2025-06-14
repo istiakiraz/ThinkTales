@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp";
 import AllBlogs from "../pages/AllBlogs";
 import BlogDetails from "../pages/BlogDetails";
 import FeaturedBlogs from "../pages/FeaturedBlogs";
+import EditBlog from "../pages/EditBlog";
  
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,11 @@ export const router = createBrowserRouter([
             path:'featured-blogs',
             Component: FeaturedBlogs,
             loader: ()=> fetch('http://localhost:3000/blogs/featured')
+        },
+        {
+            path:'edit-blog/:id',
+            element: <EditBlog></EditBlog>,
+            loader: ({params})=> fetch(`http://localhost:3000/blogs/${params.id}`)
         }
      ]
     },

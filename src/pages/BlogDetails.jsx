@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { FaFacebook, FaSquareInstagram, FaTwitter } from "react-icons/fa6";
+import React, { use, useEffect, useState } from "react";
+import { FaArrowRightLong, FaFacebook, FaSquareInstagram, FaTwitter } from "react-icons/fa6";
 import { Link, useLoaderData } from "react-router";
 import { recentBlogsPromise } from "../api/recentBlogsApi";
+import { AuthContext } from "../provider/AuthProvider";
 
 const BlogDetails = () => {
   const [recent, setRecent] = useState([]);
   const blog = useLoaderData();
+  const { user } = use(AuthContext);
 
   const shareUrl = `http://localhost:5173/blog-details/${blog._id}`;
   const shareText = encodeURIComponent(blog.title);
@@ -21,7 +23,7 @@ const BlogDetails = () => {
     recentBlogsPromise().then(setRecent);
   }, []);
 
-  console.log(recent);
+//   console.log(recent);
 
   return (
     <div className="w-11/12 py-16 lg:w-9/12 mx-auto">
@@ -70,18 +72,45 @@ const BlogDetails = () => {
           {blog.category}
         </h4>
       </div>
+      
+     {
+          
+       (user?.email == blog?.userEmail) &&  <Link to={`/edit-blog/${blog._id}`}>
+                           <button className="btn mb-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
+                             <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                             <span className="relative flex gap-1 items-center">
+                               {" "}
+                                Edit Your Blog <FaArrowRightLong />
+                             </span>
+                           </button>
+                         </Link>
+      
+     }
+
       <div className="lg:grid lg:grid-cols-8 lg:gap-8  ">
         <h1 className="text-xl mb-8 col-span-6 selection:bg-[#4c637c] selection:text-white leading-9 text-left hyphens-auto  lg:first-letter:text-8xl first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:pr-2 first-letter:leading-none ">
-        {blog.long_Description}
-      </h1>
-      <div className="col-span-2">
-        <span className="text-xl font-semibold text-gray-700 border-b pb-2 uppercase mb-4 ">Recent Blogs</span>
-       <div className="mt-8">
-         {
-            recent.map(rec=> <Link to={`/blog-details/${rec._id}`}><div key={rec._id} className="flex mb-4 items-start gap-2" > <img className="w-22 h-22 object-cover" src={rec.photo} alt={rec.title} />  <h3>{rec.title}</h3> </div></Link>)
-        }
-       </div>
-      </div>
+          {blog.long_Description}
+        </h1>
+        <div className="col-span-2">
+          <span className="text-xl font-semibold text-gray-700 border-b pb-2 uppercase mb-4 ">
+            Recent Blogs
+          </span>
+          <div className="mt-8">
+            {recent.map((rec) => (
+              <Link key={rec._id} to={`/blog-details/${rec._id}`}>
+                <div className="flex mb-4 items-start gap-2">
+                  {" "}
+                  <img
+                    className="w-22 h-22 object-cover"
+                    src={rec.photo}
+                    alt={rec.title}
+                  />{" "}
+                  <h3 className="hover:text-blue-400 transition-all duration-300">{rec.title}</h3>{" "}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
