@@ -91,9 +91,16 @@ const BlogDetails = () => {
      }
 
       <div className="lg:grid lg:grid-cols-8 lg:gap-8  ">
-        <h1 className="text-xl mb-8 col-span-6 selection:bg-[#4c637c] selection:text-white leading-9 text-left hyphens-auto  lg:first-letter:text-8xl first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:pr-2 first-letter:leading-none ">
+       <div className="col-span-6">
+         <h1 className="text-xl mb-8  selection:bg-[#4c637c] selection:text-white leading-9 text-left hyphens-auto  lg:first-letter:text-8xl first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:pr-2 first-letter:leading-none ">
           {blog.long_Description}
         </h1>
+         {/* comment section */}    
+      <div>
+        <PostComment  blog={blog} ></PostComment>
+      </div>
+       </div>
+        
         <div className="col-span-2">
           <span className="text-xl font-semibold text-gray-700 border-b pb-2 uppercase mb-4 ">
             Recent Blogs
@@ -116,11 +123,10 @@ const BlogDetails = () => {
         </div>
       </div>
 
-      {/* comment section */}
-     
-      <div>
+          
+      {/* <div>
         <PostComment  blog={blog} ></PostComment>
-      </div>
+      </div> */}
     </div>
   );
 };

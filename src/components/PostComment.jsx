@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { commentPromise } from "../api/commentApi";
 import Comment from "./Comment";
-import { data } from "react-router";
+import { PiSmileySadBold } from "react-icons/pi";
 
 const PostComment = ({ blog }) => {
   const [comments, setComments] = useState([]);
@@ -22,11 +22,12 @@ const PostComment = ({ blog }) => {
   console.log(comments);
 
   return (
-   <div>
+   <div className="mb-16">
      <div>
               <Comment handleNewComment={handleNewComment} blog={blog} ></Comment>
         </div>
-     <div>
+   {
+    comments.length < 1 ? <p className="bg-gray-200 py-6 mt-4 px-8 text-xl flex items-center gap-1 w-fit rounded-2xl"> <PiSmileySadBold size={30} /> No comments yet...</p> :   <div>
       {comments.map((com) => <div key={com?._id}> <div className="flex items-center mt-5 gap-3">
         <img className="rounded-full size-10 border-2 border-gray-700" src={com?.
 userPhoto} alt="" />
@@ -41,6 +42,7 @@ userPhoto} alt="" />
         
       )}
     </div>
+   }
    </div>
   );
 };

@@ -1,23 +1,12 @@
 import axios from "axios";
 import React, { use } from "react";
 import { FaRegComment } from "react-icons/fa6";
-import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Comment = ({ blog, handleNewComment }) => {
   const { user } = use(AuthContext);
 
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    },
-  });
+
 
   const formatted = new Date().toLocaleString("en-GB", {
   day: "2-digit",
@@ -50,10 +39,6 @@ const Comment = ({ blog, handleNewComment }) => {
       .then((res) => {
         console.log("after add comment data ", res.data);
         if (res.data.insertedId) {
-          Toast.fire({
-            icon: "success",
-            title: "Comment post successfully!",
-          });
 
           handleNewComment(commentData)
 
@@ -67,11 +52,13 @@ const Comment = ({ blog, handleNewComment }) => {
 
   return (
     <div>
-      <form onSubmit={handleComment}>
+   {
+    user?.email == blog?.userEmail ? <h1 className="text-xl font-semibold w-fit text-gray-700 border-b pb-2 uppercase mb-4"> Comments on Your Blog : </h1> :    <form onSubmit={handleComment}>
+      <h1 className="text-xl font-semibold w-fit text-gray-700 border-b pb-2 uppercase mb-4">Blog Comments : </h1>
         <textarea
           placeholder="Write your comment..."
           name="comment"
-          className="textarea lg:w-6/12 border-gray-600 textarea-neutral"
+          className="textarea md:w-8/12 lg:w-6/12 border-gray-600 textarea-neutral"
         ></textarea>{" "}
         <br />
         <button className="btn mt-4 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
@@ -83,6 +70,7 @@ const Comment = ({ blog, handleNewComment }) => {
           </span>
         </button>
       </form>
+   }
     </div>
     
 
