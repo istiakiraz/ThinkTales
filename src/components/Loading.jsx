@@ -5,7 +5,7 @@ import load from '../jsonFile/circelloader.json'
 const Loading = () => {
     return (
         <div className='min-h-screen flex justify-center items-center mx-auto'>
-            <Lottie className='w-96' animationData={load} />
+            <Lottie className='lg:w-96 md:w-72 w-64 ' animationData={load} />
         </div>
     );
 };

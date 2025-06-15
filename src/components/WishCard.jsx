@@ -37,7 +37,7 @@ const WishCard = ({ wish, setWishList, wishlist }) => {
 
   return (
     <div className="lg:grid px-8 py-8 rounded-xl justify-center lg:grid-cols-12 lg:gap-2 border border-gray-400 bg-gray-200 space-y-3 lg:space-x-6 items-center ">
-      <img
+      <img loading="lazy"
         className=" lg:w-52 mx-auto col-span-2 "
         src={wish?.blog_photo}
         alt={wish?.blog_title}

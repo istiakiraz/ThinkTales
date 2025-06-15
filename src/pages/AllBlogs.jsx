@@ -3,6 +3,8 @@ import { blogsPromise } from "../api/allblogsapi";
 import BlogCard from "../components/BlogCard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import searchImg from '../assets/search-engine-46.svg'
+import { motion } from "framer-motion";
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -28,24 +30,30 @@ const AllBlogs = () => {
 
   return (
     <div className="w-11/12 lg:w-11/12 mx-auto">
-      <h1 className="text-center text-5xl font-bold py-8">
+      <h1 className="text-center mt-12 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         All Blogs – Discover Stories That Matter
       </h1>
+      <p className="text-center text-gray-400" >From ideas to inspiration — browse all our blog posts in one place. Stay updated, informed, and inspired with every scroll.</p>
 
       {/* filter Section */}
-      <div className="max-w-md mx-auto pb-6 flex gap-4">
+      <div className="lg:w-6/12  relative flex-col mt-20 shadow-[0px_25px_20px_-20px_rgba(0,0,0,0.45)] bg-[#4c637c]/70 border-b-8 border-r-8   border-gray-300 p-8 lg:p-16 rounded-2xl lg:flex-row  mx-auto  pb-6  flex gap-4">
+     <motion.img
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+      className="w-36 lg:w-48 lg:right-70 -right-2 md:right-12 -top-20 lg:-top-24 absolute" src={searchImg} alt="search" />
         <input
           type="text"
           placeholder="Search by blog title..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-1 border border-gray-300 rounded p-2"
+          className="flex-1 border bg-white  border-gray-300 rounded p-2"
         />
 
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="border border-gray-300 rounded p-2"
+          className="border border-gray-300  bg-gray-300 w-52 text-sm rounded p-2"
         >
           <option value="">Pick a blog category</option>
           <option>Lifestyle</option>

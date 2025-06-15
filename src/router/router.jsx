@@ -11,12 +11,14 @@ import EditBlog from "../pages/EditBlog";
 import Wishlist from "../pages/Wishlist";
 import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../components/Loading";
+import ErrorPage from "../pages/ErrorPage";
  
 export const router = createBrowserRouter([
     {
      path: '/',
      Component: MainLayouts,
      hydrateFallbackElement: <Loading></Loading>,
+     errorElement: <ErrorPage></ErrorPage>,
      children: [
         {
             index: true,

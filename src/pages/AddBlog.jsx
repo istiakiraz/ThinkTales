@@ -84,6 +84,12 @@ const AddBlog = () => {
         </button>
       </Link>
 
+      <h1 className="text-center mt-2 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
+        Add a New Blog
+      </h1>
+      <p className="text-center mb-8 text-gray-400" > Share your thoughts and ideas with the world. Fill in the blog details below and click the post button to publish your story.</p>
+
+
       <div className="bg-[#4c637c]/20 rounded-xl">
         <div className="lg:w-8/12 relative  lg:px-12 w-11/12 py-12 mx-auto">
           <h1 className="text-center shadow-[0px_0px_20px_0px_rgba(76,99,124,0.8)] text-gray-600 lg:px-12 text-3xl mb-8 w-fit mx-auto flex flex-col items-center  bg-[#4c637c]/20 p-4 rounded-2xl ">

@@ -22,6 +22,7 @@ const Wishlist = () => {
 
     return (
         <div>
+            
            {
             wishlist.length <1 ? <div className='bg-gray-100 p-6 w-11/12 md:w-10/12 lg:w-8/12 mx-auto rounded-xl my-8 min-h-[470px]'>
                     <div  className='lg:w-96 md:w-72 w-64 mx-auto' ><Lottie animationData={wishJson} /></div>
@@ -32,7 +33,12 @@ const Wishlist = () => {
                     
                     
 
-            </div> :  <div className='w-11/12 min-h-[470px] lg:w-9/12 mx-auto py-24  space-y-4 grid grid-cols-1'>
+            </div> :  <>
+            <h1 className="text-center mt-16 w-11/12 mx-auto text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
+        Top Featured Blogs
+      </h1>
+      <p className="text-center w-11/12 mx-auto  text-gray-400" > Explore our most engaging and well-crafted blogs, handpicked based on quality and depth. These featured articles represent the best content from our community — rich in insights, creativity, and value.</p>
+            <div className='w-11/12 min-h-[470px] lg:w-9/12 mx-auto -mt-16 py-30  space-y-4 grid grid-cols-1'>
                 {
                     wishlist.map(wish=> <WishCard
                         
@@ -44,6 +50,7 @@ const Wishlist = () => {
                           ></WishCard>)
                 }
             </div>
+            </>
            }
         </div>
     );

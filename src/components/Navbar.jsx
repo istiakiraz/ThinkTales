@@ -148,7 +148,7 @@ const Navbar = () => {
 
             <ul
               className={`lg:hidden absolute    flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000  z-50 bg-gray-400 p-4  ${
-                show ? "right-2  opacity-100  top-21" : " right-2  top-21 opacity-0 "
+                show ? "right-2  opacity-100 visible top-21" : " right-2 invisible top-21 opacity-0 "
               }`}
               
             >

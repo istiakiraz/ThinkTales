@@ -1,9 +1,11 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router";
 import "ka-table/style.css";
-
 import { Table } from "ka-table";
 import { EditingMode, SortingMode } from "ka-table/enums";
+import brain from '../assets/brainstorming-31.svg'
+import userFrom from '../assets/user-interface-1-100.svg'
+import { motion } from "framer-motion";
 
 const FeaturedBlogs = () => {
   const featuredBlogs = useLoaderData();
@@ -13,8 +15,18 @@ const FeaturedBlogs = () => {
   }));
 
   return (
-    <div className="w-[95%] lg:w-10/12 py-8 mx-auto">
-        <h1 className="text-4xl py-5 text-center">Featured-Blogs</h1>
+    <div className="w-[95%] relative lg:w-10/12 py-8 mx-auto">
+        <h1 className="text-center mt-2 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
+        Top Featured Blogs
+      </h1>
+      <p className="text-center mb-8 text-gray-400" > Explore our most engaging and well-crafted blogs, handpicked based on quality and depth. These featured articles represent the best content from our community — rich in insights, creativity, and value.</p>
+      <img className="w-56 -top-2 opacity-30 left-50 -rotate-45 absolute" src={brain} alt="brain" />
+      <motion.img
+              initial={{ y: 30 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.9 }}
+      
+      className="w-[700px] opacity-20 hidden lg:block top-80 right-125 absolute" src={userFrom} alt="brain" />
       <div className="overflow-x-auto border border-gray-200 rounded-lg">
         <div className="min-w-[800px]">
           <Table
