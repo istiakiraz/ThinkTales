@@ -5,6 +5,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import searchImg from '../assets/search-engine-46.svg'
 import { motion } from "framer-motion";
+import Newsletter from "../components/homepageComponents/Newsletter";
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -29,7 +30,8 @@ const AllBlogs = () => {
   const skeletonArray = Array(4).fill(null);
 
   return (
-    <div className="w-11/12 lg:w-11/12 mx-auto">
+   <>
+    <div className="w-11/12  mx-auto">
       <h1 className="text-center mt-12 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         All Blogs – Discover Stories That Matter
       </h1>
@@ -100,7 +102,11 @@ const AllBlogs = () => {
             </p>
           )}
       </div>
+     
     </div>
+
+     <Newsletter></Newsletter>
+   </>
   );
 };
 

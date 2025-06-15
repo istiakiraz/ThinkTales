@@ -5,6 +5,7 @@ import WishCard from '../components/WishCard';
 import wishPic from '../assets/wishlist.svg'
 import wishJson from '../jsonFile/empty (2).json'
 import Lottie from 'lottie-react';
+import Newsletter from '../components/homepageComponents/Newsletter';
 
 const Wishlist = () => {
 
@@ -52,6 +53,8 @@ const Wishlist = () => {
             </div>
             </>
            }
+
+           <Newsletter></Newsletter>
         </div>
     );
 };

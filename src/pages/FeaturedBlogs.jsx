@@ -6,6 +6,7 @@ import { EditingMode, SortingMode } from "ka-table/enums";
 import brain from '../assets/brainstorming-31.svg'
 import userFrom from '../assets/user-interface-1-100.svg'
 import { motion } from "framer-motion";
+import Newsletter from "../components/homepageComponents/Newsletter";
 
 const FeaturedBlogs = () => {
   const featuredBlogs = useLoaderData();
@@ -105,6 +106,7 @@ const FeaturedBlogs = () => {
           />
         </div>
       </div>
+      <Newsletter></Newsletter>
     </div>
   );
 };
