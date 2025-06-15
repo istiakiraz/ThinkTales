@@ -23,6 +23,13 @@ const BlogCard = ({ blog }) => {
 
     const {user} = use(AuthContext)
 
+    const handleToast= () =>{
+      Toast.fire({
+            icon: "warning",
+            title: "Please sign in to add this to your wishlist.",
+          });
+    }
+
     
   // wishlist
   const handleWishlist = () => {
@@ -109,7 +116,7 @@ const BlogCard = ({ blog }) => {
         </Link>
 
         <Link>
-          <button onClick={handleWishlist} className="btn mt-2 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
+          <button  onClick={!user ? handleToast : handleWishlist} className="btn mt-2 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
             <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
             <span className="relative flex gap-1 items-center">
               {" "}

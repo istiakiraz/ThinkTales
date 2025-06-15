@@ -2,8 +2,23 @@ import axios from "axios";
 import React, { use } from "react";
 import { FaRegComment } from "react-icons/fa6";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Comment = ({ blog, handleNewComment }) => {
+
+   const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+
+
   const { user } = use(AuthContext);
 
 
@@ -15,6 +30,14 @@ const Comment = ({ blog, handleNewComment }) => {
   hour12: true,
   timeZone: "Asia/Dhaka",
 });
+
+const handleToast= (e) =>{
+      e.preventDefault()
+      Toast.fire({
+            icon: "warning",
+            title: "You must sign in to leave a comment.",
+          });
+    }
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -53,7 +76,7 @@ const Comment = ({ blog, handleNewComment }) => {
   return (
     <div>
    {
-    user?.email == blog?.userEmail ? <h1 className="text-xl font-semibold w-fit text-gray-700 border-b pb-2 uppercase mb-4"> Comments on Your Blog : </h1> :    <form onSubmit={handleComment}>
+    user?.email == blog?.userEmail ? <h1 className="text-xl font-semibold w-fit text-gray-700 border-b pb-2 uppercase mb-4"> Comments on Your Blog : </h1> :    <form onSubmit={!user ? handleToast : handleComment} >
       <h1 className="text-xl font-semibold w-fit text-gray-700 border-b pb-2 uppercase mb-4">Blog Comments : </h1>
         <textarea
           placeholder="Write your comment..."
