@@ -9,7 +9,7 @@ const PostComment = ({ blog }) => {
 
 
   useEffect(() => {
-    commentPromise(blog._id).then(setComments);
+    commentPromise(blog?._id).then(setComments);
   }, [blog._id]);
 
   
@@ -19,7 +19,7 @@ const PostComment = ({ blog }) => {
 
   
 
-  console.log(comments);
+  // console.log(comments);
 
   return (
    <div className="mb-16">
