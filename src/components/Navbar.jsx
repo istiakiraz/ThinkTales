@@ -121,7 +121,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className=" bg-base-100 rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
+    <div className=" bg-base-100  rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
       <div className="navbar md:w-11/12 lg:w-9/12 mx-auto ">
         <div className="navbar-start">
           <Link to='/'><img className="w-42" src={logo} alt="ThinkTales" /></Link>
@@ -131,7 +131,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="navbar-end">
+        {/*  */}
+
+        <div className="navbar-end     ">
           <span className="flex items-center  gap-4">
             <span
               className=" lg:hidden mr-1 cursor-pointer  p-1 rounded-l"
@@ -145,8 +147,8 @@ const Navbar = () => {
             </span>
 
             <ul
-              className={`lg:hidden absolute   flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000  z-50 bg-gray-400 p-4  ${
-                show ? "right-2  top-21" : "-right-70 top-21"
+              className={`lg:hidden absolute    flex flex-col shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_10px_10px_-5px_rgba(0,0,0,0.04)]   *:border-gray-100 *:border-b-1 *:py-1 *:my-1 *:pr-20 duration-1000  z-50 bg-gray-400 p-4  ${
+                show ? "right-2  opacity-100  top-21" : " right-2  top-21 opacity-0 "
               }`}
               
             >
@@ -286,6 +288,8 @@ const Navbar = () => {
             )}
           </div>
         </div>
+
+        {/*  */}
       </div>
     </div>
   );

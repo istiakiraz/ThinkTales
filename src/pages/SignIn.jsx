@@ -29,7 +29,6 @@ const SignIn = () => {
 
   const { signInUser, googleLogIn, setUser, updateUser } = use(AuthContext);
 
-  //   const { logInUser, googleLogIn, resetPass } = use(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();

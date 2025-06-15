@@ -5,6 +5,7 @@ import { recentBlogsPromise } from "../api/recentBlogsApi";
 import { AuthContext } from "../provider/AuthProvider";
 // import Comment from "../components/Comment";
 import PostComment from "../components/PostComment";
+import { GoArrowLeft } from "react-icons/go";
 // import { commentPromise } from "../api/commentApi";
 
 const BlogDetails = () => {
@@ -30,6 +31,16 @@ const BlogDetails = () => {
 
   return (
     <div className="w-11/12 py-16 lg:w-9/12 mx-auto">
+      <Link to="/all-blogs">
+                    <button className="btn mb-8 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
+                      <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                      <span className="relative flex gap-1 items-center">
+                        {" "}
+                        <GoArrowLeft size={20} />
+                        Back to Blogs
+                      </span>
+                    </button>
+                  </Link>
       <h1 className="text-5xl lg:text-7xl mb-8 md:text-6xl selection:bg-[#4c637c] selection:text-white  ">
         {blog.title}
       </h1>
