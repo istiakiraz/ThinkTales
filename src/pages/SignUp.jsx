@@ -60,10 +60,11 @@ const SignUp = () => {
 
         navigate("/");
         Swal.fire({
-          title: "Welcome to ThinkTales!",
-          text: "Let’s turn tasks into success—together.",
+           title: "👋 Welcome to ThinkTales!",
+          text: "Ready to begin your journey?",
           icon: "success",
-          confirmButtonText: "Let's Get Started",
+          confirmButtonText: "Get Started",
+          confirmButtonColor: "#4c637c",
         });
       })
       .catch((error) => {
@@ -98,10 +99,11 @@ const SignUp = () => {
         navigate(`${location.state ? location.state : "/"}`);
 
         Swal.fire({
-          title: "Welcome to KAJERO.com!",
-          text: "Let’s turn tasks into success—together.",
+           title: "👋 Welcome to ThinkTales!",
+          text: "Ready to begin your journey?",
           icon: "success",
           confirmButtonText: "Get Started",
+          confirmButtonColor: "#4c637c",
         });
       })
       .catch((error) => {

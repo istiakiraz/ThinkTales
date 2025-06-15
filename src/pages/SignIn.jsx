@@ -50,8 +50,8 @@ const SignIn = () => {
         navigate(`${location.state ? location.state : "/"}`);
 
         Swal.fire({
-          title: "Welcome to ThinkTales!",
-          text: "Let’s turn tasks into success—together.",
+          title: "👋 Welcome to ThinkTales!",
+          text: "Ready to begin your journey?.",
           icon: "success",
           confirmButtonText: "Get Started",
         });
@@ -61,6 +61,7 @@ const SignIn = () => {
         Toast.fire({
           icon: "error",
           title: "Incorrect email or password",
+          confirmButtonColor: "#4c637c",
         });
       });
   };
@@ -88,10 +89,11 @@ const SignIn = () => {
         navigate(`${location.state ? location.state : "/"}`);
 
         Swal.fire({
-          title: "Welcome to KAJERO.com!",
-          text: "Let’s turn tasks into success—together.",
+          title: "👋 Welcome to ThinkTales!",
+          text: "Ready to begin your journey?",
           icon: "success",
           confirmButtonText: "Get Started",
+          confirmButtonColor: "#4c637c",
         });
       })
       .catch((error) => {

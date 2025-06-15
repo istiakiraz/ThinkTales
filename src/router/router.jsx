@@ -9,11 +9,14 @@ import BlogDetails from "../pages/BlogDetails";
 import FeaturedBlogs from "../pages/FeaturedBlogs";
 import EditBlog from "../pages/EditBlog";
 import Wishlist from "../pages/Wishlist";
+import PrivateRoute from "../provider/PrivateRoute";
+import Loading from "../components/Loading";
  
 export const router = createBrowserRouter([
     {
      path: '/',
      Component: MainLayouts,
+     hydrateFallbackElement: <Loading></Loading>,
      children: [
         {
             index: true,
@@ -22,7 +25,7 @@ export const router = createBrowserRouter([
         },
         {
             path:"add-blog",
-            element: <AddBlog></AddBlog>
+            element: <PrivateRoute><AddBlog></AddBlog></PrivateRoute>
         },
         {
             path: "all-blogs",
@@ -45,7 +48,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "wishlist",
-            element: <Wishlist></Wishlist>
+            element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>
         }
      ]
     },

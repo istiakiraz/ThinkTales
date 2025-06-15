@@ -49,7 +49,7 @@ const BlogCard = ({ blog }) => {
       })
       .catch((error) => {
         Toast.fire({
-          icon: "error",
+          icon: "warning",
           title: error.response.data.message,
         });
       });
