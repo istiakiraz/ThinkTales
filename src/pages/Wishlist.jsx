@@ -13,13 +13,13 @@ const Wishlist = () => {
 
     const [wishlist, setWishList] = useState([]);
 
-    console.log(user.accessToken);
+    // console.log(user.accessToken);
     
 
     useEffect(()=>{
         wishListPromise(user?.email, user.accessToken).then(setWishList)
 
-    }, [user?.email])
+    }, [user?.email, user.accessToken])
 
     // console.log(wishlist);
 

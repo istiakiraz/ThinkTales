@@ -1,9 +1,14 @@
 import axios from "axios";
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const WishCard = ({ wish, setWishList, wishlist }) => {
+
+  const {user} = use(AuthContext)
+
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -17,7 +22,11 @@ const WishCard = ({ wish, setWishList, wishlist }) => {
       if (result.isConfirmed) {
         // Delete task by database
         axios
-          .delete(`http://localhost:3000/wishlist/${wish._id}`)
+          .delete(`http://localhost:3000/wishlist/${wish._id}`,{
+            headers: {
+            authorization : `Bearer ${user.accessToken}`
+        }
+          })
           .then((res) => {
             console.log("Deleted wishlist item", res.data);
             if (res.data.deletedCount) {
@@ -25,6 +34,7 @@ const WishCard = ({ wish, setWishList, wishlist }) => {
                 title: "Deleted!",
                 text: "Your task has been deleted.",
                 icon: "success",
+                confirmButtonColor: "#4c637c",
               });
               //   remove the task form the state
               const remainingBlog = wishlist.filter((tas) => tas._id !== id);
