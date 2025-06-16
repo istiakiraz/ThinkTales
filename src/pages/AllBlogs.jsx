@@ -94,10 +94,10 @@ const AllBlogs = () => {
                 </div>
               </div>
             ))
-          : blogs.length > 0
-          ? blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
+          : blogs?.length > 0
+          ? blogs?.map((blog) => <BlogCard key={blog._id} blog={blog} />)
           : (
-            <p className="col-span-full text-center text-gray-500">
+            <p className="col-span-full text-2xl text-center text-gray-500">
               No blogs found.
             </p>
           )}

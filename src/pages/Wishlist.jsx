@@ -27,7 +27,7 @@ const Wishlist = () => {
         <div className='pt-28' >
             
            {
-            wishlist.length <1 ? <div className='bg-gray-100  p-6 w-11/12 md:w-10/12 lg:w-8/12 mx-auto rounded-xl my-8 min-h-[470px]'>
+            wishlist?.length <1 ? <div className='bg-gray-100  p-6 w-11/12 md:w-10/12 lg:w-8/12 mx-auto rounded-xl my-8 min-h-[470px]'>
                     <div  className='lg:w-96 md:w-72 w-64 mx-auto' ><Lottie animationData={wishJson} /></div>
                     <div className=' flex bg-gray-300 border-gray-500 border rounded-xl items-center justify-center'>
                        <div className='lg:w-40 w-32 md:w-36 '> <img className=' w-fit  mx-auto' src={wishPic} alt="wishlist demo img" /></div>
@@ -43,7 +43,7 @@ const Wishlist = () => {
       <p className="text-center w-11/12 mx-auto  text-gray-400" >Here are the blogs you've marked to read later or found interesting. Easily revisit your favorite posts anytime from your personalized wishlist.</p>
             <div className='w-11/12 min-h-[470px] lg:w-9/12 mx-auto -mt-16 py-30  space-y-4 grid grid-cols-1'>
                 {
-                    wishlist.map(wish=> <WishCard
+                    wishlist?.map(wish=> <WishCard
                         
                         wishlist={wishlist}
                         setWishList={setWishList}

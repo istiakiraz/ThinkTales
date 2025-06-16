@@ -43,7 +43,7 @@ const BlogCard = ({ blog }) => {
     };
 
     axios
-      .post("http://localhost:3000/wishlist", wishlistData)
+      .post("https://thinktales-server.vercel.app/wishlist", wishlistData)
       .then((res) => {
         console.log(res.data);
 
@@ -76,8 +76,8 @@ const BlogCard = ({ blog }) => {
         <img
           className=" rounded-t-4xl lg:rounded-none transition-all  hover:object-contain lg:-ml-16 duration-300 w-full lg:min-w-[300px] lg:min-h-70 object-cover  "
           loading="lazy"
-          src={blog.photo}
-          alt={blog.title}
+          src={blog?.photo}
+          alt={blog?.title}
         />
       </div>
       <div className="py-8 lg:py-6  px-8 lg:px-0  ">
@@ -88,27 +88,27 @@ const BlogCard = ({ blog }) => {
           </h4>
           <img
             className="rounded-full size-10 z-10 -mt-4 lg:mt-0 lg:size-12 lg:-mb-20 lg:-ml-43 hover:scale-110 transition-all duration-300 hover:border-1 border-blue-500 "
-            src={blog.userPhoto}
-            alt={blog.userName}
+            src={blog?.userPhoto}
+            alt={blog?.userName}
           />
         </div> : <div className="flex items-center space-x-2">
           <h4 className="uppercase text-sm border-b-4 border-dotted w-fit mb-4 pb-1 border-[#4c637c] font-semibold">
-            {blog.userName}
+            {blog?.userName}
           </h4>
         </div>
         }
         <h1 className="text-xl selection:bg-[#4c637c] selection:text-white   text-gray-600 hyphens-auto font-medium">
-          {blog.title}
+          {blog?.title}
         </h1>
 
         <h4 className="text-sm mt-1 font-[300]  text-[#4c637c]">
-          <span className="text-gray-500">Publish Date:</span> {blog.date}
+          <span className="text-gray-500">Publish Date:</span> {blog?.date}
         </h4>
 
         <h3 className=" mt-4  text-gray-500 selection:bg-[#4c637c] selection:text-white  hyphens-auto text-left line-clamp-5 lg:line-clamp-3 ">
-          {blog.long_Description}
+          {blog?.long_Description}
         </h3>
-        <Link to={`/blog-details/${blog._id}`} >
+        <Link to={`/blog-details/${blog?._id}`} >
           <button className="group cursor-pointer relative uppercase text-sm mb-2 flex gap-1 items-center  text-[#4c637c] bg-[#4c637c]/5 px-1 mt-3">
             Continue Reading <FaArrowRightLong />
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4c637c] transition-all duration-300 group-hover:w-full"></span>
@@ -128,7 +128,7 @@ const BlogCard = ({ blog }) => {
         <h4 className="text-[12px] ml-45 md:ml-150 lg:ml-50 mt-2 flex  items-center font-[300] text-[#4c637c]">
           {" "}
           <FaHashtag />
-         <span className="text-gray-500">Tag:</span>  {blog.category}
+         <span className="text-gray-500">Tag:</span>  {blog?.category}
         </h4>
       </div>
     </motion.div>

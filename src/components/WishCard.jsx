@@ -22,7 +22,7 @@ const WishCard = ({ wish, setWishList, wishlist }) => {
       if (result.isConfirmed) {
         // Delete task by database
         axios
-          .delete(`http://localhost:3000/wishlist/${wish._id}`,{
+          .delete(`https://thinktales-server.vercel.app/wishlist/${wish._id}`,{
             headers: {
             authorization : `Bearer ${user.accessToken}`
         }

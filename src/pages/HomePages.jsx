@@ -7,7 +7,7 @@ import Hero from '../components/homepageComponents/Hero';
 const HomePages = () => {
 
     const blogData = useLoaderData();
-    // console.log(blogData);
+    console.log(blogData);
 
     return (
         <div>

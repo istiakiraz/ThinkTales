@@ -27,8 +27,8 @@ const PostComment = ({ blog }) => {
               <Comment handleNewComment={handleNewComment} blog={blog} ></Comment>
         </div>
    {
-    comments.length < 1 ? <p className="bg-gray-200 py-6 mt-4 px-8 text-xl flex items-center gap-1 w-fit rounded-2xl"> <PiSmileySadBold size={30} /> No comments yet...</p> :   <div>
-      {comments.map((com) => <div key={com?._id}> <div className="flex items-center mt-5 gap-3">
+    comments?.length < 1 ? <p className="bg-gray-200 py-6 mt-4 px-8 text-xl flex items-center gap-1 w-fit rounded-2xl"> <PiSmileySadBold size={30} /> No comments yet...</p> :   <div>
+      {comments?.map((com) => <div key={com?._id}> <div className="flex items-center mt-5 gap-3">
         <img className="rounded-full size-10 border-2 border-gray-700" src={com?.
 userPhoto} alt="" />
         <div className="bg-gray-200 py-2 pl-3 pr-8 rounded-2xl">

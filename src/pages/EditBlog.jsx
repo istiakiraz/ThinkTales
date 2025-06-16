@@ -45,7 +45,7 @@ const EditBlog = () => {
     // edit blog data on the DB
 
     axios
-      .patch(`http://localhost:3000/blogs/${blog._id}`, newBlog)
+      .patch(`https://thinktales-server.vercel.app/blogs/${blog._id}`, newBlog)
       .then((res) => {
         console.log("after add blog data ", res.data);
         navigate(`/blog-details/${blog._id}`);

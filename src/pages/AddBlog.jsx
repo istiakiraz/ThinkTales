@@ -16,22 +16,20 @@ import Swal from "sweetalert2";
 
 const AddBlog = () => {
   const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { user } = use(AuthContext);
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,23 +52,28 @@ const AddBlog = () => {
     // send blog data on the DB
 
     axios
-    .post('http://localhost:3000/blogs', newBlog)
-    .then((res)=>{
-        console.log('after add blog data ',res.data);
-        if(res.data.insertedId){   
-          navigate('/all-blogs')        
-        Toast.fire({
+      .post(
+        "https://thinktales-server.vercel.app/blogs", newBlog, 
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+        
+      )
+      .then((res) => {
+        console.log("after add blog data ", res.data);
+        if (res.data.insertedId) {
+          navigate("/all-blogs");
+          Toast.fire({
             icon: "success",
             title: "Blog successfully posted!",
           });
-                  
         }
-
-    })
-    .catch((error)=>{
+      })
+      .catch((error) => {
         console.log(error);
-    })
-
+      });
   };
 
   return (
@@ -89,8 +92,11 @@ const AddBlog = () => {
       <h1 className="text-center mt-2 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         Add a New Blog
       </h1>
-      <p className="text-center mb-8 text-gray-400" > Share your thoughts and ideas with the world. Fill in the blog details below and click the post button to publish your story.</p>
-
+      <p className="text-center mb-8 text-gray-400">
+        {" "}
+        Share your thoughts and ideas with the world. Fill in the blog details
+        below and click the post button to publish your story.
+      </p>
 
       <div className="bg-[#4c637c]/20 rounded-xl">
         <div className="lg:w-8/12 relative  lg:px-12 w-11/12 py-12 mx-auto">
@@ -114,11 +120,26 @@ const AddBlog = () => {
             reflect, express, and explore.
           </p>
 
-    <img className="w-64 top-50 hidden lg:block opacity-60 -left-40 -rotate-20 absolute" src={pic} alt="pic" />
-    <img className="w-64  bottom-20 hidden lg:block opacity-60 -right-40 -rotate-20 absolute" src={pic} alt="pic" />
-    <img className="w-64  -top-10 hidden lg:block opacity-50 -right-20 rotate-10 absolute" src={pic2} alt="pic" />
-    <img className="w-64  top-135 hidden lg:block opacity-50 right-80  absolute" src={pic3} alt="pic" />
-
+          <img
+            className="w-64 top-50 hidden lg:block opacity-60 -left-40 -rotate-20 absolute"
+            src={pic}
+            alt="pic"
+          />
+          <img
+            className="w-64  bottom-20 hidden lg:block opacity-60 -right-40 -rotate-20 absolute"
+            src={pic}
+            alt="pic"
+          />
+          <img
+            className="w-64  -top-10 hidden lg:block opacity-50 -right-20 rotate-10 absolute"
+            src={pic2}
+            alt="pic"
+          />
+          <img
+            className="w-64  top-135 hidden lg:block opacity-50 right-80  absolute"
+            src={pic3}
+            alt="pic"
+          />
 
           <form onSubmit={handleSubmit} className="">
             <div>
@@ -213,8 +234,11 @@ const AddBlog = () => {
               className="btn col-span-full flex w-full lg:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  "
             >
               <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-50 rotate-12 group-hover:-translate-x-40 ease"></span>
-              <span className="relative flex items-center gap-1"> <GiClick size={20} />
- Post</span>
+              <span className="relative flex items-center gap-1">
+                {" "}
+                <GiClick size={20} />
+                Post
+              </span>
             </button>
           </form>
         </div>

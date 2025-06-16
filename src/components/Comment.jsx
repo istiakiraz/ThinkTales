@@ -58,7 +58,7 @@ const handleToast= (e) =>{
     // post comment data on the DB
 
     axios
-      .post("http://localhost:3000/comments", commentData)
+      .post("https://thinktales-server.vercel.app/comments", commentData)
       .then((res) => {
         console.log("after add comment data ", res.data);
         if (res.data.insertedId) {

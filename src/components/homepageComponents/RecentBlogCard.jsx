@@ -48,7 +48,7 @@ const RecentBlogCard = ({ blog }) => {
     };
 
     axios
-      .post("http://localhost:3000/wishlist", wishlistData)
+      .post("https://thinktales-server.vercel.app/wishlist", wishlistData)
       .then((res) => {
         console.log(res.data);
 

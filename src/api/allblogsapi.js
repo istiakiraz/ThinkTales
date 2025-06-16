@@ -1,3 +1,3 @@
 export const blogsPromise = (query) =>{
-    return fetch(`http://localhost:3000/blogs?${query}`).then(res=> res.json())
+    return fetch(`https://thinktales-server.vercel.app/blogs?${query}`).then(res=> res.json())
 }

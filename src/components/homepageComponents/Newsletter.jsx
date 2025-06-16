@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { use } from 'react';
 import postBox from '../../assets/postBox.svg'
 import message from '../../assets/message.svg'
 import Swal from 'sweetalert2';
 import { motion } from "framer-motion";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Newsletter = () => {
+
+  const {user} = use(AuthContext)
 
      const Toast = Swal.mixin({
       toast: true,
@@ -42,6 +45,7 @@ const Newsletter = () => {
                 <input className='bg-white md:w-96 shadow-[-7px_43px_60px_-19px_rgba(0,0,255,0.41)] h-12 lg:h-14 pl-4 w-full rounded lg:w-[600px] '
                 required
                 name='email'
+                defaultValue={user?.email}
                 placeholder='Write your email...'
                 type="text" />
                 
