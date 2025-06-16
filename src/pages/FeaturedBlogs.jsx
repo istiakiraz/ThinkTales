@@ -16,12 +16,12 @@ const FeaturedBlogs = () => {
   }));
 
   return (
-    <div className="w-[95%] relative lg:w-10/12 py-8 mx-auto">
+    <div className="w-[95%] pt-40 relative lg:w-10/12 py-8 mx-auto">
         <h1 className="text-center mt-2 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         Top Featured Blogs
       </h1>
       <p className="text-center mb-8 text-gray-400" > Explore our most engaging and well-crafted blogs, handpicked based on quality and depth. These featured articles represent the best content from our community — rich in insights, creativity, and value.</p>
-      <img className="w-56 -top-2 opacity-30 left-50 -rotate-45 absolute" src={brain} alt="brain" />
+      <img className="w-56 top-10 opacity-30 left-50 -rotate-45 absolute" src={brain} alt="brain" />
       <motion.img
               initial={{ y: 30 }}
               animate={{ y: 0 }}

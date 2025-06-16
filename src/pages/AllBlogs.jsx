@@ -31,7 +31,7 @@ const AllBlogs = () => {
 
   return (
    <>
-    <div className="w-11/12  mx-auto">
+    <div className="w-11/12 pt-28   mx-auto">
       <h1 className="text-center mt-12 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         All Blogs – Discover Stories That Matter
       </h1>

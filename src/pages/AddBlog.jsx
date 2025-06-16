@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
 import logo from "../assets/titleLogo.png";
 import write from "../assets/coding-3-24.svg";
@@ -27,9 +27,11 @@ const AddBlog = () => {
       },
     });
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const { user } = use(AuthContext);
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,12 +57,14 @@ const AddBlog = () => {
     .post('http://localhost:3000/blogs', newBlog)
     .then((res)=>{
         console.log('after add blog data ',res.data);
-        if(res.data.insertedId){           
+        if(res.data.insertedId){   
+          navigate('/all-blogs')        
         Toast.fire({
             icon: "success",
             title: "Blog successfully posted!",
           });
-          form.reset(); 
+          // form.reset(); 
+         
 
         }
 
@@ -72,7 +76,7 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="lg:w-9/12 w-11/12 py-16 mx-auto">
+    <div className="lg:w-9/12 pt-32 w-11/12 py-16 mx-auto">
       <Link to="/">
         <button className="btn mb-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
           <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>

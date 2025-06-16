@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from "react-router";
+import React from "react";
+import { Link, useNavigate } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
 import logo from "../assets/titleLogo.png";
 import write from "../assets/coding-3-24.svg";
@@ -12,28 +12,25 @@ import { TbCategory2, TbFileDescription, TbPhotoPlus } from "react-icons/tb";
 import { GiClick } from "react-icons/gi";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useLoaderData } from 'react-router';
+import { useLoaderData } from "react-router";
 
 const EditBlog = () => {
+  const blog = useLoaderData();
+  console.log(blog);
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
+  const navigate = useNavigate();
 
-    const blog = useLoaderData();
-    console.log(blog);
- const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-
-  // const navigate = useNavigate()
-
-//   const { user } = use(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,34 +40,29 @@ const EditBlog = () => {
     const formData = new FormData(form);
     const newBlog = Object.fromEntries(formData.entries());
 
-  
-
     console.log(newBlog);
 
     // edit blog data on the DB
 
     axios
-    .patch(`http://localhost:3000/blogs/${blog._id}`, newBlog)
-    .then((res)=>{
-        console.log('after add blog data ',res.data);
-        if(res.data.modifiedCount){           
-        Toast.fire({
+      .patch(`http://localhost:3000/blogs/${blog._id}`, newBlog)
+      .then((res) => {
+        console.log("after add blog data ", res.data);
+        navigate(`/blog-details/${blog._id}`);
+        if (res.data.modifiedCount) {
+          Toast.fire({
             icon: "success",
             title: "Blog successfully edited!",
           });
-        //   form.reset(); 
-
         }
-
-    })
-    .catch((error)=>{
+      })
+      .catch((error) => {
         console.log(error);
-    })
-
+      });
   };
 
   return (
-    <div className="lg:w-9/12 w-11/12 py-16 mx-auto">
+    <div className="lg:w-9/12 pt-36 w-11/12 py-16 mx-auto">
       <Link to="/">
         <button className="btn mb-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  ">
           <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
@@ -104,15 +96,28 @@ const EditBlog = () => {
             reflect, express, and explore.
           </p>
 
-    <img className="w-64 top-50 hidden lg:block opacity-60 -left-40 -rotate-20 absolute" src={pic} alt="pic" />
-    <img className="w-64  bottom-20 hidden lg:block opacity-60 -right-40 -rotate-20 absolute" src={pic} alt="pic" />
-    <img className="w-64  -top-10 hidden lg:block opacity-50 -right-20 rotate-10 absolute" src={pic2} alt="pic" />
-    <img className="w-64  top-135 hidden lg:block opacity-50 right-80  absolute" src={pic3} alt="pic" />
+          <img
+            className="w-64 top-50 hidden lg:block opacity-60 -left-40 -rotate-20 absolute"
+            src={pic}
+            alt="pic"
+          />
+          <img
+            className="w-64  bottom-20 hidden lg:block opacity-60 -right-40 -rotate-20 absolute"
+            src={pic}
+            alt="pic"
+          />
+          <img
+            className="w-64  -top-10 hidden lg:block opacity-50 -right-20 rotate-10 absolute"
+            src={pic2}
+            alt="pic"
+          />
+          <img
+            className="w-64  top-135 hidden lg:block opacity-50 right-80  absolute"
+            src={pic3}
+            alt="pic"
+          />
 
-
-          <form 
-          onSubmit={handleSubmit} 
-          className="">
+          <form onSubmit={handleSubmit} className="">
             <div>
               <fieldset className="fieldset rounded-box   p-4">
                 {/* title input */}
@@ -209,8 +214,11 @@ const EditBlog = () => {
               className="btn col-span-full flex w-full lg:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#4c637c]  hover:bg-gradient-to-r hover:from-[#4c637c] hover:to-[#4c637c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#4c637c] transition-all ease-out duration-300  "
             >
               <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-50 rotate-12 group-hover:-translate-x-40 ease"></span>
-              <span className="relative flex items-center gap-1"> <GiClick size={20} />
- Post</span>
+              <span className="relative flex items-center gap-1">
+                {" "}
+                <GiClick size={20} />
+                Post
+              </span>
             </button>
           </form>
         </div>

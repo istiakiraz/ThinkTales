@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar';
 const ErrorPage = () => {
     return (<>
     <Navbar></Navbar>
-     <div className='min-h-screen -mt-18 flex flex-col  justify-center items-center
+     <div className='min-h-screen bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] pt-28 flex flex-col  justify-center items-center
          mx-auto'>
             
             <Lottie className='w-96 md:w-[450px] lg:w-[600px] -mt-40 '  animationData={error} />

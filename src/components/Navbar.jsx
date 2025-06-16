@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import logo from "../assets/titleLogo.png";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import { Link, NavLink } from "react-router";
@@ -26,6 +26,34 @@ const Navbar = () => {
 
   const [show, setShow] = useState(false);
   const { user, signOutUser } = use(AuthContext);
+
+   const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY < lastScrollY) {
+        setShowNavbar(true); 
+      } else {
+        setShowNavbar(false);
+      }
+
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
+
+
 
   const handleSignOut = () => {
     signOutUser()
@@ -121,7 +149,10 @@ const Navbar = () => {
   );
 
   return (
-    <div className=" bg-base-100  rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
+   <div  className={`fixed top-0 w-full z-50 transition-transform duration-300 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`} >
+     <div className=" bg-base-100  rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
       <div className="navbar md:w-11/12 lg:w-9/12 mx-auto ">
         <div className="navbar-start">
           <Link to='/'><img className="w-42" src={logo} alt="ThinkTales" /></Link>
@@ -292,6 +323,7 @@ const Navbar = () => {
         {/*  */}
       </div>
     </div>
+   </div>
   );
 };
 

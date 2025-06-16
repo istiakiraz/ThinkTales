@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router';
 import RecentBlogs from '../components/homepageComponents/RecentBlogs';
 import Newsletter from '../components/homepageComponents/Newsletter';
+import Hero from '../components/homepageComponents/Hero';
 
 const HomePages = () => {
 
@@ -10,7 +11,7 @@ const HomePages = () => {
 
     return (
         <div>
-            home 
+            <Hero></Hero>
             <RecentBlogs blogData={blogData} ></RecentBlogs>
             <Newsletter></Newsletter>
             

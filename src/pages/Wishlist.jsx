@@ -22,10 +22,10 @@ const Wishlist = () => {
     // console.log(wishlist);
 
     return (
-        <div>
+        <div className='pt-28' >
             
            {
-            wishlist.length <1 ? <div className='bg-gray-100 p-6 w-11/12 md:w-10/12 lg:w-8/12 mx-auto rounded-xl my-8 min-h-[470px]'>
+            wishlist.length <1 ? <div className='bg-gray-100  p-6 w-11/12 md:w-10/12 lg:w-8/12 mx-auto rounded-xl my-8 min-h-[470px]'>
                     <div  className='lg:w-96 md:w-72 w-64 mx-auto' ><Lottie animationData={wishJson} /></div>
                     <div className=' flex bg-gray-300 border-gray-500 border rounded-xl items-center justify-center'>
                        <div className='lg:w-40 w-32 md:w-36 '> <img className=' w-fit  mx-auto' src={wishPic} alt="wishlist demo img" /></div>
@@ -35,7 +35,7 @@ const Wishlist = () => {
                     
 
             </div> :  <>
-            <h1 className="text-center mt-16 w-11/12 mx-auto text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
+            <h1 className="text-center mt-16 w-11/12  mx-auto text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         Top Featured Blogs
       </h1>
       <p className="text-center w-11/12 mx-auto  text-gray-400" > Explore our most engaging and well-crafted blogs, handpicked based on quality and depth. These featured articles represent the best content from our community — rich in insights, creativity, and value.</p>
