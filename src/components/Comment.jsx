@@ -81,6 +81,7 @@ const handleToast= (e) =>{
         <textarea
           placeholder="Write your comment..."
           name="comment"
+          required
           className="textarea md:w-8/12 lg:w-6/12 border-gray-600 textarea-neutral"
         ></textarea>{" "}
         <br />

@@ -63,9 +63,7 @@ const AddBlog = () => {
             icon: "success",
             title: "Blog successfully posted!",
           });
-          // form.reset(); 
-         
-
+                  
         }
 
     })

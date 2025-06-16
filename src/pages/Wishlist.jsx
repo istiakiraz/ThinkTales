@@ -12,10 +12,12 @@ const Wishlist = () => {
     const {user} = use(AuthContext);
 
     const [wishlist, setWishList] = useState([]);
+
+    console.log(user.accessToken);
     
 
     useEffect(()=>{
-        wishListPromise(user?.email).then(setWishList)
+        wishListPromise(user?.email, user.accessToken).then(setWishList)
 
     }, [user?.email])
 
@@ -36,9 +38,9 @@ const Wishlist = () => {
 
             </div> :  <>
             <h1 className="text-center mt-16 w-11/12  mx-auto text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
-        Top Featured Blogs
+        Your Wishlist
       </h1>
-      <p className="text-center w-11/12 mx-auto  text-gray-400" > Explore our most engaging and well-crafted blogs, handpicked based on quality and depth. These featured articles represent the best content from our community — rich in insights, creativity, and value.</p>
+      <p className="text-center w-11/12 mx-auto  text-gray-400" >Here are the blogs you've marked to read later or found interesting. Easily revisit your favorite posts anytime from your personalized wishlist.</p>
             <div className='w-11/12 min-h-[470px] lg:w-9/12 mx-auto -mt-16 py-30  space-y-4 grid grid-cols-1'>
                 {
                     wishlist.map(wish=> <WishCard

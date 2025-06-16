@@ -1,3 +1,7 @@
-export const wishListPromise = (query) =>{
-    return fetch(`http://localhost:3000/wishlist/${query}`).then(res=> res.json())
+export const wishListPromise = (query, accessToken ) =>{
+    return fetch(`http://localhost:3000/wishlist/${query}`,{
+        headers: {
+            authorization : `Bearer ${accessToken}`
+        }
+    }).then(res=> res.json())
 }
