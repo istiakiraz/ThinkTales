@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
         },
         {
             path:'edit-blog/:id',
-            element: <EditBlog></EditBlog>,
+            element: <PrivateRoute><EditBlog></EditBlog></PrivateRoute>,
             loader: ({params})=> fetch(`https://thinktales-server.vercel.app/blogs/${params.id}`)
         },
         {

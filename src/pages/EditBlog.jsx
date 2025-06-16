@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
 import logo from "../assets/titleLogo.png";
@@ -13,10 +13,11 @@ import { GiClick } from "react-icons/gi";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const EditBlog = () => {
   const blog = useLoaderData();
-  console.log(blog);
+  // console.log(blog);
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -31,6 +32,9 @@ const EditBlog = () => {
 
   const navigate = useNavigate();
 
+  const {user} = use(AuthContext)
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,12 +44,21 @@ const EditBlog = () => {
     const formData = new FormData(form);
     const newBlog = Object.fromEntries(formData.entries());
 
-    console.log(newBlog);
+     newBlog.userEmail = blog.userEmail;
+
+    // console.log(newBlog);
 
     // edit blog data on the DB
 
     axios
-      .patch(`https://thinktales-server.vercel.app/blogs/${blog._id}`, newBlog)
+      .patch(`https://thinktales-server.vercel.app/blogs/${blog._id}`, newBlog,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+
+      )
       .then((res) => {
         console.log("after add blog data ", res.data);
         navigate(`/blog-details/${blog._id}`);
