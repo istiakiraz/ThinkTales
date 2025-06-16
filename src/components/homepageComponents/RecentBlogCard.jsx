@@ -3,6 +3,9 @@ import React, { use } from "react";
 import { FaArrowRightLong, FaHashtag } from "react-icons/fa6";
 import { GoHeart } from "react-icons/go";
 
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 import { Link } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -70,12 +73,19 @@ const RecentBlogCard = ({ blog }) => {
   return (
     <div className="bg-gray-200  flex flex-col lg:flex-row lg:space-x-5 pr-8 lg:pr-4 pl-8">
       <div className="pb-8  ">
-        <img
-          className="shadow-[7px_8px_33px_20px_rgba(0,0,0,0.28)] hover:mt-0 transition-all duration-300 -mt-8 w-full lg:min-w-[450px] lg:h-80 object-cover  "
+
+        <PhotoProvider>
+      <PhotoView src={blog.photo}>
+         <img
+          className="shadow-[7px_8px_33px_20px_rgba(0,0,0,0.28)] cursor-grab  hover:mt-0 transition-all duration-300 -mt-8 w-full lg:min-w-[450px] lg:h-80 object-cover  "
           loading="lazy"
           src={blog.photo}
           alt={blog.title}
         />
+      </PhotoView>
+    </PhotoProvider>
+
+       
         <div className="flex justify-between">
           <div className="text-gray-500">
             <h4 className="lg:text-8xl text-4xl font-bold">{day}</h4>

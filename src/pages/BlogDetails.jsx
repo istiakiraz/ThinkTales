@@ -3,10 +3,10 @@ import { FaArrowRightLong, FaFacebook, FaSquareInstagram, FaTwitter } from "reac
 import { Link, useLoaderData } from "react-router";
 import { recentBlogsPromise } from "../api/recentBlogsApi";
 import { AuthContext } from "../provider/AuthProvider";
-// import Comment from "../components/Comment";
 import PostComment from "../components/PostComment";
 import { GoArrowLeft } from "react-icons/go";
-// import { commentPromise } from "../api/commentApi";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const BlogDetails = () => {
   const [recent, setRecent] = useState([]);
@@ -44,7 +44,12 @@ const BlogDetails = () => {
       <h1 className="text-5xl lg:text-7xl mb-8 md:text-6xl selection:bg-[#4c637c] selection:text-white  ">
         {blog.title}
       </h1>
-      <img className="mb-8 min-w-full " src={blog.photo} alt={blog.title} />
+      <PhotoProvider>
+      <PhotoView src={blog.photo}>
+       <img className="mb-8 cursor-grab min-w-full " src={blog.photo} alt={blog.title} />
+      </PhotoView>
+    </PhotoProvider>
+      
       <h3 className="mb-8 text-2xl md:text-3xl lg:text-5xl bg-gray-200  py-2 lg:leading-15 px-4 ">
         {blog.short_Description}
       </h3>

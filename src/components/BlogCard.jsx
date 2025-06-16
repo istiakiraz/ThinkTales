@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../provider/AuthProvider";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const BlogCard = ({ blog }) => {
 
@@ -73,12 +75,19 @@ const BlogCard = ({ blog }) => {
       className="bg-gray-300 shadow-2xl hover:bg-gray-200 transition-colors duration-300  rounded-3xl grid grid-cols-1 items-center   lg:grid-cols-2   lg:pr-4 lg:pl-8"
     >
       <div className="pb-8 z-0 lg:pb-0   ">
-        <img
-          className=" rounded-t-4xl lg:rounded-none transition-all  hover:object-contain lg:-ml-16 duration-600 w-full lg:min-w-[300px] lg:min-h-70 object-cover  "
+
+      <PhotoProvider>
+      <PhotoView src={blog?.photo}>
+       <img
+          className=" rounded-t-4xl lg:rounded-none cursor-grab transition-all  hover:object-contain lg:-ml-16 duration-600 w-full lg:min-w-[300px] lg:min-h-70 object-cover  "
           loading="lazy"
           src={blog?.photo}
           alt={blog?.title}
         />
+      </PhotoView>
+    </PhotoProvider>
+
+        
       </div>
       <div className="py-8 lg:py-6  px-8 lg:px-0  ">
         {
