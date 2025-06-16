@@ -1,12 +1,46 @@
-# React + Vite
+# ThinkTales
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ThinkTales** is a modern blog writing platform where users can add blog posts, comment on other users' blogs, read posts, and manage a personalized wishlist of favorite blogs.
 
-Currently, two official plugins are available:
+[Visit ThinkTales Live](https://thinktales.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Users can create and publish their own blog posts.
+- Engage with other users by commenting on their blog posts.
+- Browse and read blog posts shared by other users.
+- Add favorite blogs from other users to a personalized wishlist.
+- Secure private routes with JWT token-based authentication.
+
+---
+
+## Technologies & Libraries Used
+
+- React `^19.1.0`
+- React Router `^7.6.2`
+- Tailwind CSS `^4.1.8` and `@tailwindcss/vite` `^4.1.8`
+- Axios `^1.9.0`
+- Firebase `^11.9.1`
+- JWT Token Authentication for API protection
+- Framer Motion `^12.16.0` and Motion `^12.16.0`
+- Ka-Table `^12.0.3` and @tanstack/react-table `^8.21.3`
+- Lottie React `^2.4.1`
+- React Icons `^5.5.0`
+- React Loading Skeleton `^3.5.0`
+- React Photo View `^1.2.7`
+- React Simple Typewriter `^5.0.1`
+- SweetAlert2 `^11.22.0`
+- Swiper `^11.2.8`
+
+---
+
+## Project Structure
+
+- **Public Pages:** Home, Blog Listing, Single Blog Reading, User Registration/Login.
+- **Private Routes:** Create Blog Post, Comment on Blogs, Wishlist Management.
+- **API Security:** All private APIs are protected with JWT tokens to ensure secure access.
+
+---
+
