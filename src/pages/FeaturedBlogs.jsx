@@ -16,18 +16,19 @@ const FeaturedBlogs = () => {
   }));
 
   return (
-    <div className="w-[95%] pt-40 relative lg:w-10/12 py-8 mx-auto">
+    <>
+    <div className=" w-11/12 pt-40 relative lg:w-10/12 py-8 mx-auto">
         <h1 className="text-center mt-2 text-3xl text-[#4c637c] lg:text-5xl font-bold py-4">
         Top Featured Blogs
       </h1>
       <p className="text-center mb-8 text-gray-400" > Explore our most engaging and well-crafted blogs, handpicked based on quality and depth. These featured articles represent the best content from our community — rich in insights, creativity, and value.</p>
-      <img className="w-56 top-10 opacity-30 left-50 -rotate-45 absolute" src={brain} alt="brain" />
+      <img className="w-56 top-10 opacity-30 lg:left-50  -rotate-45 absolute" src={brain} alt="brain" />
       <motion.img
               initial={{ y: 30 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.9 }}
       
-      className="w-[700px] opacity-20 hidden lg:block top-80 right-125 absolute" src={userFrom} alt="brain" />
+      className="lg:w-[700px] opacity-20 hidden lg:block top-80 right-125 absolute" src={userFrom} alt="brain" />
       <div className="overflow-x-auto border border-gray-200 rounded-lg">
         <div className="min-w-[800px]">
           <Table
@@ -106,8 +107,11 @@ const FeaturedBlogs = () => {
           />
         </div>
       </div>
-      <Newsletter></Newsletter>
     </div>
+    <div >
+       <Newsletter></Newsletter>
+     </div>
+    </>
   );
 };
 
