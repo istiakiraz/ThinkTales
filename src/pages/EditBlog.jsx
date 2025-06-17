@@ -14,6 +14,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import ErrorPage from "./ErrorPage";
 
 const EditBlog = () => {
   const blog = useLoaderData();
@@ -73,6 +74,10 @@ const EditBlog = () => {
         console.log(error);
       });
   };
+
+  if(user.email !== blog.userEmail){
+    return <ErrorPage></ErrorPage>
+  }
 
   return (
     <div className="lg:w-9/12 pt-36 w-11/12 py-16 mx-auto">

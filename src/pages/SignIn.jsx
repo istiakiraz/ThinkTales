@@ -53,6 +53,7 @@ const SignIn = () => {
           text: "Ready to begin your journey?.",
           icon: "success",
           confirmButtonText: "Get Started",
+          confirmButtonColor: "#4c637c",
         });
       })
       .catch((error) => {
@@ -60,7 +61,7 @@ const SignIn = () => {
         Toast.fire({
           icon: "error",
           title: "Incorrect email or password",
-          confirmButtonColor: "#4c637c",
+          
         });
       });
   };

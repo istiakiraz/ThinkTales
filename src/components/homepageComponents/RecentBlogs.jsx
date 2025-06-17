@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 const RecentBlogs = ({ blogData }) => {
+  
   return (
     <div>
       <div  className="lg:w-10/12  w-11/12 mx-auto">
