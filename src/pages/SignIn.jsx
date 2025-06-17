@@ -41,7 +41,7 @@ const SignIn = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(email, password);
+    // console.log(email, password);
 
     signInUser(email, password)
       .then((result) => {
@@ -71,7 +71,7 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
 
-        console.log(user);
+        // console.log(user);
 
         updateUser({ displayName: user.displayName, photoURL: user.photoURL })
           .then(() => {
@@ -223,7 +223,7 @@ const SignIn = () => {
                   Forgot password?
                 </div>
 
-                <button className="relative inline-flex items-center justify-center mt-4 w-6/12 mx-auto  p-4 px-5 py-3 overflow-hidden font-medium  transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-[#4c637c]">
+                <button type="submit" className="relative inline-flex items-center justify-center mt-4 w-6/12 mx-auto  p-4 px-5 py-3 overflow-hidden font-medium  transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-[#4c637c]">
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#4c637c] via-[#4c637c] to-[#4c637c]"></span>
                   <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-[#0857a0] rounded-full opacity-30 group-hover:rotate-90 ease"></span>
                   <span className="relative flex gap-1 items-center text-white">

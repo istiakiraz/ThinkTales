@@ -61,7 +61,7 @@ const EditBlog = () => {
 
       )
       .then((res) => {
-        console.log("after add blog data ", res.data);
+        // console.log("after add blog data ", res.data);
         navigate(`/blog-details/${blog._id}`);
         if (res.data.modifiedCount) {
           Toast.fire({

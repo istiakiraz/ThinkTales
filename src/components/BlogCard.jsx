@@ -47,7 +47,7 @@ const BlogCard = ({ blog }) => {
     axios
       .post("https://thinktales-server.vercel.app/wishlist", wishlistData)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
 
         if (res.data.insertedId) {
           Toast.fire({

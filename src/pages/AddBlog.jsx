@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link,  useNavigate } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
 import logo from "../assets/titleLogo.png";
 import write from "../assets/coding-3-24.svg";
@@ -47,7 +47,7 @@ const AddBlog = () => {
     newBlog.userEmail = user?.email;
     newBlog.date = dateOnly;
 
-    console.log(newBlog);
+    // console.log(newBlog);
 
     // send blog data on the DB
 
@@ -62,7 +62,7 @@ const AddBlog = () => {
         
       )
       .then((res) => {
-        console.log("after add blog data ", res.data);
+        // console.log("after add blog data ", res.data);
         if (res.data.insertedId) {
           navigate("/all-blogs");
           Toast.fire({

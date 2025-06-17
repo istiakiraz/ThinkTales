@@ -28,7 +28,7 @@ const WishCard = ({ wish, setWishList, wishlist }) => {
         }
           })
           .then((res) => {
-            console.log("Deleted wishlist item", res.data);
+            // console.log("Deleted wishlist item", res.data);
             if (res.data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

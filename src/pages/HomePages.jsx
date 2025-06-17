@@ -4,11 +4,12 @@ import RecentBlogs from '../components/homepageComponents/RecentBlogs';
 import Newsletter from '../components/homepageComponents/Newsletter';
 import Hero from '../components/homepageComponents/Hero';
 import Slider from '../components/Slider';
+import Services from '../components/homepageComponents/Services';
 
 const HomePages = () => {
 
     const blogData = useLoaderData();
-    console.log(blogData);
+    // console.log(blogData);
 
     return (
         <div>
@@ -16,6 +17,7 @@ const HomePages = () => {
             <RecentBlogs blogData={blogData} ></RecentBlogs>
             <Slider></Slider>
             <Newsletter></Newsletter>
+            <Services></Services>
             
         </div>
     );
