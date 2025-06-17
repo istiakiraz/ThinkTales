@@ -79,7 +79,7 @@ const BlogCard = ({ blog }) => {
       <PhotoProvider>
       <PhotoView src={blog?.photo}>
        <img
-          className=" rounded-t-4xl lg:rounded-none cursor-grab transition-all  hover:object-contain lg:-ml-16 duration-600 w-full lg:min-w-[300px] lg:min-h-70 object-cover  "
+          className=" rounded-t-4xl lg:rounded-none cursor-grab lg:h-64 transition-all  hover:object-contain lg:-ml-16 duration-600 w-full lg:min-w-[300px] lg:min-h-70 object-cover  "
           loading="lazy"
           src={blog?.photo}
           alt={blog?.title}
