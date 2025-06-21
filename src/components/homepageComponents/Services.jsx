@@ -42,7 +42,7 @@ const Services = () => {
   ];
 
   return (
-    <div className=" py-24 ">
+    <div className=" py-24 overflow-x-hidden ">
       <div className="flex flex-col-reverse w-11/12 mx-auto  justify-between gap-10 md:gap-32 md:w-10/12 lg:flex-row items-center ">
         <div className="relative md:-mt-25 lg:mt-0 ">
           <img
@@ -62,7 +62,7 @@ const Services = () => {
           </h2>
           <p className=" text-gray-400 text-center lg:text-left mb-6" >Discover trusted insights, expert opinions, and fresh perspectives all in one place. We curate every blog with care to ensure your time is well spent — informative, inspiring, and worth reading. </p>
 
-          <ul className=" *:bg-[#495c78] *:cursor-pointer lg:grid md:*:w-full lg:*:w-96  space-x-3 lg:grid-cols-2  *:hover:bg-[#495c78]/60 duration-300 transition-all *:p-2 *:w-96 *:rounded-[8px] space-y-4">
+          <ul className=" *:bg-[#495c78] *:cursor-pointer lg:grid md:*:w-full lg:*:w-96  space-x-3 lg:grid-cols-2  *:hover:bg-[#495c78]/60 duration-300 transition-all *:p-2 *:w-full *:rounded-[8px] space-y-4">
             {features.map((feature, index) => (
               <li
                 key={index}
