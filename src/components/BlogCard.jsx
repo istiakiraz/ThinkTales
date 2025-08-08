@@ -134,7 +134,7 @@ const BlogCard = ({ blog }) => {
           </button>
         </Link>
 
-        <h4 className="text-[12px] ml-45 md:ml-150 lg:ml-50 mt-2 flex  items-center font-[300] text-[#4c637c]">
+        <h4 className="text-[12px] ml-45 md:ml-150 lg:ml-30 2xl:ml-50 mt-2 flex  items-center font-[300] text-[#4c637c]">
           {" "}
           <FaHashtag />
          <span className="text-gray-500">Tag:</span>  {blog?.category}

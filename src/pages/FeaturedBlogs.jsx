@@ -28,7 +28,7 @@ const FeaturedBlogs = () => {
               animate={{ y: 0 }}
               transition={{ duration: 0.9 }}
       
-      className="lg:w-[700px] opacity-20 hidden lg:block top-80 right-125 absolute" src={userFrom} alt="brain" />
+      className="2xl:w-[700px] opacity-20 hidden lg:block top-80 right-125 absolute" src={userFrom} alt="brain" />
       <div className="overflow-x-auto border border-gray-200 rounded-lg">
         <div className="min-w-[800px]">
           <Table

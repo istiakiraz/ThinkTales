@@ -101,7 +101,8 @@ const Navbar = () => {
         </li>
       </NavLink>
 
-      <NavLink
+     {
+      user &&  <NavLink
         className={({ isActive }) =>
           isActive
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
@@ -115,6 +116,7 @@ const Navbar = () => {
           <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
+     }
 
       <NavLink
         className={({ isActive }) =>
@@ -131,7 +133,8 @@ const Navbar = () => {
         </li>
       </NavLink>
 
-      <NavLink
+     {
+      user &&  <NavLink
         className={({ isActive }) =>
           isActive
             ? " bg-[#4c637c]/20 px-3 border border-[#4c637c] rounded-2xl  "
@@ -145,6 +148,7 @@ const Navbar = () => {
           <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#4c637c] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </li>
       </NavLink>
+     }
     </>
   );
 
@@ -153,7 +157,7 @@ const Navbar = () => {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`} >
      <div className=" bg-base-100  rounded-b-4xl py-2 shadow-[0px_8px_30px_0px_rgba(76,99,124,0.12)]  ">
-      <div className="navbar md:w-11/12 lg:w-9/12 mx-auto ">
+      <div className="navbar md:w-11/12 lg:w-11/12 2xl:w-9/12 mx-auto ">
         <div className="navbar-start">
           <Link to='/'><img className="w-42" src={logo} alt="ThinkTales" /></Link>
         </div>

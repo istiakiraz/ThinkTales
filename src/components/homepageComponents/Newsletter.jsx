@@ -81,13 +81,13 @@ const Newsletter = () => {
           </form>
         </div>
         <div className="md:col-span-1 shadow-[-41px_0px_60px_-19px_rgba(0,0,255,0.41)] relative rounded-2xl md:mb-0 mb-4 md:rounded-r-2xl md:rounded-l-[180px]  bg-[#8da9c4] ">
-          <img className="lg:w-96 w-64 mx-auto " src={postBox} alt="" />
+          <img className="lg:w-96 w-64 mx-auto " src={postBox} alt="post box" />
           <motion.img
             ref={ref}
             // initial={{ opacity: 0, x: 50 }}
             animate={controls}
             transition={{ duration: 0.7 }}
-            className="lg:w-72 md:w-36 w-44 top-28 lg:top-15 hover:scale-110 duration-300 md:top-25 md:right-39  lg:right-85 absolute"
+            className="2xl:w-72 md:w-36 w-44 top-28 lg:top-15 hover:scale-110 duration-300 md:top-25 md:right-39  lg:right-85 absolute"
             src={message}
             alt="message card"
           />

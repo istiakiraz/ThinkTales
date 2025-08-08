@@ -16,7 +16,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          className="lg:text-7xl text-4xl mt-8 lg:mt-0 md:text-5xl z-10 text-center lg:text-left lg:leading-20 font-semibold "
+          className="2xl:text-7xl lg:text-6xl text-4xl mt-8 lg:mt-0 md:text-5xl z-10 text-center lg:text-left lg:leading-20 font-semibold "
         >
           Explore Ideas. Share Stories. Inspire{" "}
           <span className="text-[#495c78] ">Minds.</span>

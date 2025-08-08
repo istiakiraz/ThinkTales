@@ -71,13 +71,13 @@ const RecentBlogCard = ({ blog }) => {
   };
 
   return (
-    <div className="bg-gray-200  flex flex-col lg:flex-row lg:space-x-5 pr-8 lg:pr-4 pl-8">
+    <div className="bg-gray-200  flex flex-col lg:flex-row lg:space-x-3 2xl:space-x-5 pr-8 2xl:pr-4 pl-8">
       <div className="pb-8  ">
 
         <PhotoProvider>
       <PhotoView src={blog.photo}>
          <img
-          className="shadow-[7px_8px_33px_20px_rgba(0,0,0,0.28)] cursor-grab  hover:mt-0 transition-all duration-300 -mt-8 w-full lg:min-w-[450px] lg:h-80 object-cover  "
+          className="shadow-[7px_8px_33px_20px_rgba(0,0,0,0.28)] cursor-grab  hover:mt-0 transition-all duration-300 -mt-8 w-full 2xl:min-w-[450px] lg:min-w-[300px] lg:h-60 2xl:h-80 object-cover  "
           loading="lazy"
           src={blog.photo}
           alt={blog.title}

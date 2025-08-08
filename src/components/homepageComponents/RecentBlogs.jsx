@@ -7,7 +7,7 @@ const RecentBlogs = ({ blogData }) => {
   
   return (
     <div>
-      <div  className="lg:w-10/12  w-11/12 mx-auto">
+      <div  className="2xl:w-10/12  w-11/12 mx-auto">
         <h1 className="text-left w-fit  bg-[#4c637c]/40 px-4   mt-2 text-3xl text-[#4c637c] lg:text-4xl font-bold py-4">
            <Typewriter
                               words={[" Recent Blogs"]}
@@ -31,7 +31,7 @@ const RecentBlogs = ({ blogData }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="lg:w-10/12 my-8 w-11/12 grid grid-cols-1 mx-auto lg:grid-cols-2 gap-20 "
+        className="2xl:w-10/12 my-8 w-11/12 grid grid-cols-1 mx-auto lg:grid-cols-2 gap-20 "
       >
         {blogData?.map((blog) => (
           <RecentBlogCard key={blog._id} blog={blog}></RecentBlogCard>
